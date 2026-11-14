@@ -1,0 +1,21 @@
+{
+  "files.associations": {
+    "*.kt": "kotlin",
+    "*.kts": "kotlin"
+  },
+  "editor.semanticHighlighting.enabled": true,
+  "kotlin.java.home": "/usr/lib/jvm/java-21-openjdk",
+  "kotlin.languageServer.enabled": true,
+  "kotlin.languageServer.transport": "stdio",
+  "kotlin.compiler.jvm.target": "17",
+  "gradle.autoDetect": "on",
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.jdt.ls.java.home": "/usr/lib/jvm/java-21-openjdk",
+  "terminal.integrated.env.linux": {
+    "JAVA_HOME": "/usr/lib/jvm/java-21-openjdk"
+  },
+  "[kotlin]": {
+    "editor.semanticHighlighting.enabled": true,
+    "editor.formatOnSave": false
+  }
+}

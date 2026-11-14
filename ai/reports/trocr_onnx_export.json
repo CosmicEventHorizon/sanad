@@ -1,0 +1,36 @@
+{
+  "text": {
+    "source": "microsoft/trocr-small-handwritten",
+    "asset_directory": "app/src/main/assets/models/trocr",
+    "shared_encoder": false,
+    "files": [
+      "config.json",
+      "decoder_model.onnx",
+      "encoder_model.onnx",
+      "generation_config.json",
+      "preprocessor_config.json",
+      "sentencepiece.bpe.model",
+      "special_tokens_map.json",
+      "tokenizer.json",
+      "tokenizer_config.json",
+      "vocab.json"
+    ]
+  },
+  "numbers": {
+    "source": "ai/runs/trocr_numbers_numeric/best",
+    "asset_directory": "app/src/main/assets/models/trocr_numbers",
+    "shared_encoder": false,
+    "files": [
+      "config.json",
+      "decoder_model.onnx",
+      "encoder_model.onnx",
+      "generation_config.json",
+      "preprocessor_config.json",
+      "sentencepiece.bpe.model",
+      "special_tokens_map.json",
+      "tokenizer.json",
+      "tokenizer_config.json",
+      "vocab.json"
+    ]
+  }
+}

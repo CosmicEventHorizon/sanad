@@ -1,0 +1,18 @@
+{
+  "model": "YOLO11n-OBB",
+  "checkpoint": "ai/runs/pregnancy_anchors_yolo11n_obb/weights/best.pt",
+  "onnx_asset": "app/src/main/assets/forms/pregnancy_monitoring/anchors.onnx",
+  "input_size": 960,
+  "validation": {
+    "precision": 0.999310471475833,
+    "recall": 1.0,
+    "map50": 0.9949999999999999,
+    "map50_95": 0.9939164864864865
+  },
+  "test": {
+    "precision": 0.9991624660429876,
+    "recall": 1.0,
+    "map50": 0.9949999999999999,
+    "map50_95": 0.9941907142857141
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "form_id": "pregnancy_monitoring",
+  "title_string_resource": "form_pregnancy_monitoring_title",
+  "sections": [
+    {
+      "id": "general_information",
+      "label_string_resource": "form_section_general_information",
+      "fields": [
+        {
+          "id": "form_number",
+          "type": "text",
+          "label_string_resource": "form_field_form_number"
+        },
+        {
+          "id": "region",
+          "type": "text",
+          "label_string_resource": "form_field_region"
+        },
+        {
+          "id": "province",
+          "type": "text",
+          "label_string_resource": "form_field_province"
+        },
+        {
+          "id": "health_facility_name",
+          "type": "text",
+          "label_string_resource": "form_field_health_facility_name"
+        },
+        {
+          "id": "health_facility_type",
+          "type": "single_choice",
+          "label_string_resource": "form_field_health_facility_type",
+          "options": [
+            { "id": "dr", "label_string_resource": "form_option_facility_type_dr" },
+            { "id": "csc", "label_string_resource": "form_option_facility_type_csc" },
+            { "id": "csu", "label_string_resource": "form_option_facility_type_csu" },
+            { "id": "csca", "label_string_resource": "form_option_facility_type_csca" },
+            { "id": "csua", "label_string_resource": "form_option_facility_type_csua" },
+            { "id": "other", "label_string_resource": "form_option_other" }
+          ]
+        },
+        {
+          "id": "facility_mobility",
+          "type": "single_choice",
+          "label_string_resource": "form_field_facility_mobility",
+          "options": [
+            { "id": "fixed", "label_string_resource": "form_option_facility_mobility_fixed" },
+            { "id": "mobile", "label_string_resource": "form_option_facility_mobility_mobile" }
+          ]
+        },
+        {
+          "id": "patient_full_name",
+          "type": "text",
+          "label_string_resource": "form_field_patient_full_name"
+        }
+      ]
+    },
+    {
+      "id": "pregnancy_risk",
+      "label_string_resource": "form_section_pregnancy_risk",
+      "fields": [
+        {
+          "id": "high_risk_pregnancy",
+          "type": "boolean",
+          "label_string_resource": "form_field_high_risk_pregnancy"
+        },
+        {
+          "id": "risk_factors",
+          "type": "multiple_choice",
+          "label_string_resource": "form_field_risk_factors",
+          "options": [
+            { "id": "anemia", "label_string_resource": "form_option_risk_anemia" },
+            { "id": "hypertension", "label_string_resource": "form_option_risk_hypertension" },
+            { "id": "diabetes", "label_string_resource": "form_option_risk_diabetes" },
+            { "id": "cardiopathy", "label_string_resource": "form_option_risk_cardiopathy" },
+            { "id": "metrorrhagia", "label_string_resource": "form_option_risk_metrorrhagia" },
+            { "id": "infection", "label_string_resource": "form_option_risk_infection" },
+            { "id": "preeclampsia", "label_string_resource": "form_option_risk_preeclampsia" },
+            { "id": "eclampsia", "label_string_resource": "form_option_risk_eclampsia" }
+          ]
+        },
+        {
+          "id": "other_risk_factors",
+          "type": "text",
+          "label_string_resource": "form_field_other_risk_factors"
+        }
+      ]
+    }
+  ]
+}

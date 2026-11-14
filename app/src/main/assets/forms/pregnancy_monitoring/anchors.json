@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "form_id": "pregnancy_monitoring",
+  "coordinate_format": "oriented_bounding_box",
+  "model_output": "cx_cy_width_height_rotation_confidence_class",
+  "crop_coordinates": "anchor_local_xyxy",
+  "classes": [
+    { "class_id": 0, "anchor_id": "form_number", "field_id": "form_number", "field_type": "text", "canonical_anchor": [0.084, 0.119, 0.176, 0.133], "relative_crop": [1.0823, -0.0644, 3.8213, 0.8689] },
+    { "class_id": 1, "anchor_id": "region", "field_id": "region", "field_type": "text", "canonical_anchor": [0.084, 0.160, 0.140, 0.174], "relative_crop": [1.1053, -0.0292, 6.8049, 0.9041] },
+    { "class_id": 2, "anchor_id": "province", "field_id": "province", "field_type": "text", "canonical_anchor": [0.537, 0.160, 0.611, 0.174], "relative_crop": [0.9753, 0.0419, 4.3804, 0.9752] },
+    { "class_id": 3, "anchor_id": "health_facility_name", "field_id": "health_facility_name", "field_type": "text", "canonical_anchor": [0.083, 0.202, 0.296, 0.218], "relative_crop": [1.0043, -0.0319, 3.1337, 0.7847] },
+    {
+      "class_id": 4, "anchor_id": "health_facility_type", "field_id": "health_facility_type", "field_type": "single_choice",
+      "canonical_anchor": [0.083, 0.245, 0.300, 0.261],
+      "relative_crop": [0.3177, 2.3093, 3.5269, 5.3256],
+      "options": [
+        { "id": "dr", "relative_crop": [0.3184, 2.3093, 0.3805, 2.9054] },
+        { "id": "csc", "relative_crop": [1.4022, 2.3409, 1.4643, 2.9366] },
+        { "id": "csu", "relative_crop": [2.3311, 2.3680, 2.3933, 2.9637] },
+        { "id": "csca", "relative_crop": [0.3177, 4.5364, 0.3798, 5.1321] },
+        { "id": "csua", "relative_crop": [1.4015, 4.5680, 1.4636, 5.1637] },
+        { "id": "other", "relative_crop": [2.0550, 4.2120, 3.5269, 5.3256], "ink_threshold": 0.01, "trim_border": false }
+      ]
+    },
+    {
+      "class_id": 5, "anchor_id": "facility_mobility", "field_id": "facility_mobility", "field_type": "single_choice",
+      "canonical_anchor": [0.166, 0.379, 0.447, 0.396],
+      "relative_crop": [-0.0511, 0.2301, 0.8339, 0.8205],
+      "options": [
+        { "id": "fixed", "relative_crop": [-0.0511, 0.2301, -0.0031, 0.7902] },
+        { "id": "mobile", "relative_crop": [0.7857, 0.2598, 0.8339, 0.8205] }
+      ]
+    },
+    { "class_id": 6, "anchor_id": "patient_full_name", "field_id": "patient_full_name", "field_type": "text", "canonical_anchor": [0.083, 0.445, 0.278, 0.463], "relative_crop": [1.0154, -0.2778, 3.2667, 1.1111] },
+    { "class_id": 7, "anchor_id": "high_risk_pregnancy", "field_id": "high_risk_pregnancy", "field_type": "boolean", "canonical_anchor": [0.122, 0.521, 0.340, 0.539], "relative_crop": [-0.0979, 0.1091, -0.0361, 0.6386] },
+    {
+      "class_id": 8, "anchor_id": "risk_factors", "field_id": "risk_factors", "field_type": "multiple_choice",
+      "canonical_anchor": [0.098, 0.547, 0.381, 0.566],
+      "relative_crop": [0.0372, 1.6741, 1.4214, 5.5944],
+      "options": [
+        { "id": "anemia", "relative_crop": [0.0382, 1.6741, 0.0858, 2.1757] },
+        { "id": "hypertension", "relative_crop": [0.0379, 2.7994, 0.0855, 3.3011] },
+        { "id": "diabetes", "relative_crop": [0.0376, 3.9247, 0.0852, 4.4263] },
+        { "id": "cardiopathy", "relative_crop": [0.0372, 5.0500, 0.0849, 5.5516] },
+        { "id": "metrorrhagia", "relative_crop": [1.3738, 1.7168, 1.4214, 2.2185] },
+        { "id": "infection", "relative_crop": [1.3735, 2.8422, 1.4211, 3.3438] },
+        { "id": "preeclampsia", "relative_crop": [1.3732, 3.9674, 1.4208, 4.4691] },
+        { "id": "eclampsia", "relative_crop": [1.3728, 5.0927, 1.4205, 5.5944] }
+      ]
+    },
+    { "class_id": 9, "anchor_id": "other_risk_factors", "field_id": "other_risk_factors", "field_type": "text", "canonical_anchor": [0.483, 0.663, 0.601, 0.681], "relative_crop": [0.9607, -0.4073, 3.1673, 0.6485] }
+  ]
+}

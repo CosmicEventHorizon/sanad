@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "form_id": "pregnancy_monitoring",
+  "template": "forms/pregnancy_monitoring/template.json",
+  "anchors": "forms/pregnancy_monitoring/anchors.json",
+  "pipeline": {
+    "anchor_detection": {
+      "engine": "onnx_runtime",
+      "architecture": "yolo11n_obb",
+      "model": "forms/pregnancy_monitoring/anchors.onnx",
+      "shared": false,
+      "input": {
+        "width": 960,
+        "height": 960,
+        "color_space": "rgb",
+        "normalization": "zero_to_one"
+      },
+      "confidence_threshold": 0.35,
+      "iou_threshold": 0.45
+    },
+    "handwriting_recognition": {
+      "engine": "trocr",
+      "model_directory": "models/trocr",
+      "shared": true
+    },
+    "numeric_recognition": {
+      "engine": "trocr",
+      "model_directory": "models/trocr_numbers",
+      "shared": true
+    },
+    "checkbox_recognition": {
+      "engine": "ink_density",
+      "minimum_ink_ratio": 0.12,
+      "adaptive_threshold_block_size": 21,
+      "adaptive_threshold_constant": 8
+    }
+  },
+  "supported_locales": ["en", "fr"]
+}

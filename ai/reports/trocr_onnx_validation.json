@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "samples": [
+    {
+      "reference": "87,079",
+      "prediction": "870"
+    },
+    {
+      "reference": "800.72",
+      "prediction": "80072"
+    },
+    {
+      "reference": "22,0",
+      "prediction": "2"
+    },
+    {
+      "reference": "80",
+      "prediction": "80"
+    },
+    {
+      "reference": "44.4",
+      "prediction": "44.4"
+    },
+    {
+      "reference": "+42,945",
+      "prediction": "+429"
+    },
+    {
+      "reference": "195",
+      "prediction": "195"
+    },
+    {
+      "reference": "27.7",
+      "prediction": "27.3"
+    },
+    {
+      "reference": "137/57",
+      "prediction": "13757"
+    },
+    {
+      "reference": "65.725",
+      "prediction": "65.75"
+    }
+  ]
+}
