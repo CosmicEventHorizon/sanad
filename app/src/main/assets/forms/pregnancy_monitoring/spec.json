@@ -18,6 +18,22 @@
       "confidence_threshold": 0.35,
       "iou_threshold": 0.45
     },
+    "handwriting_detection": {
+      "engine": "onnx_runtime",
+      "architecture": "yolo11n_obb",
+      "model": "models/handwriting.onnx",
+      "shared": true,
+      "input": {
+        "width": 960,
+        "height": 960,
+        "color_space": "rgb",
+        "normalization": "zero_to_one"
+      },
+      "confidence_threshold": 0.15,
+      "iou_threshold": 0.45,
+      "maximum_detections": 150,
+      "crop_padding": 0.15
+    },
     "handwriting_recognition": {
       "engine": "trocr",
       "model_directory": "models/trocr",

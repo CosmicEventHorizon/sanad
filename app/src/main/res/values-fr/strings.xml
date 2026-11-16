@@ -18,6 +18,7 @@
     <string name="camera_permission_body">Sanad utilise la caméra uniquement pour capturer les formulaires médicaux.</string>
     <string name="allow_camera">Autoriser la caméra</string>
     <string name="capture">Capturer</string>
+    <string name="camera_capture_failed">La photo n’a pas pu être enregistrée. Veuillez réessayer.</string>
     <string name="processing">Lecture du formulaire…</string>
     <string name="processing_detail">Détection des champs et vérification de la fiabilité</string>
     <string name="processing_failed">Impossible de lire cette image. Veuillez réessayer.</string>

@@ -70,6 +70,7 @@ private fun CameraContent(onCaptured: (String) -> Unit) {
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
     var capture by remember { mutableStateOf<ImageCapture?>(null) }
+    var captureError by remember { mutableStateOf(false) }
     Box(Modifier.fillMaxSize()) {
         AndroidView(
             factory = { ctx ->
@@ -95,14 +96,21 @@ private fun CameraContent(onCaptured: (String) -> Unit) {
         }
         IconButton(
             onClick = {
+                captureError = false
                 val file = File(context.cacheDir, "scan-${System.currentTimeMillis()}.jpg")
                 capture?.takePicture(ImageCapture.OutputFileOptions.Builder(file).build(), ContextCompat.getMainExecutor(context), object : ImageCapture.OnImageSavedCallback {
                     override fun onImageSaved(result: ImageCapture.OutputFileResults) = onCaptured(Uri.fromFile(file).toString())
-                    override fun onError(exception: ImageCaptureException) = Unit
+                    override fun onError(exception: ImageCaptureException) { captureError = true }
                 })
             },
+            enabled = capture != null,
             modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 30.dp).size(76.dp).background(Color.White, CircleShape),
         ) { Icon(Icons.Rounded.CameraAlt, stringResource(R.string.capture), tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(34.dp)) }
+        if (captureError) {
+            Surface(Modifier.align(Alignment.BottomCenter).padding(bottom = 118.dp), color = MaterialTheme.colorScheme.errorContainer, shape = RoundedCornerShape(12.dp)) {
+                Text(stringResource(R.string.camera_capture_failed), color = MaterialTheme.colorScheme.onErrorContainer, modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp))
+            }
+        }
     }
 }
 

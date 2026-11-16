@@ -30,6 +30,10 @@ fun ProcessingScreen(imageUri: String, viewModel: ScanViewModel, onComplete: () 
         if (state is ScanUiState.Error) {
             Icon(Icons.Rounded.DocumentScanner, null, tint = MaterialTheme.colorScheme.error)
             Text(stringResource(R.string.processing_failed), style = MaterialTheme.typography.titleLarge, modifier = Modifier.padding(vertical = 18.dp))
+            val message = (state as ScanUiState.Error).message
+            if (message.isNotBlank()) {
+                Text(message, color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.padding(bottom = 18.dp))
+            }
             Button(onClick = { viewModel.reset(); viewModel.process(imageUri) }) { Text(stringResource(R.string.try_again)) }
         } else {
             CircularProgressIndicator()

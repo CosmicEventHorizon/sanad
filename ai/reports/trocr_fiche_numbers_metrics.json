@@ -1,0 +1,3232 @@
+{
+  "base_model": "microsoft/trocr-small-handwritten",
+  "initial_model": "ai/runs/trocr_numbers_square_crops/best",
+  "target_pattern": "YYYY-NNN-NNN",
+  "preprocessing": "Production pipeline-shaped crop; TrOCRProcessor direct resize to 384x384, matching Android inference",
+  "train_samples": 4786,
+  "validation_samples": 586,
+  "test_samples": 638,
+  "train": {
+    "train_runtime": 653.9446,
+    "train_samples_per_second": 36.593,
+    "train_steps_per_second": 2.294,
+    "total_flos": 2.8626187699460506e+18,
+    "train_loss": 1.1524181378682454,
+    "epoch": 5.0
+  },
+  "test": {
+    "test_loss": 0.5663649439811707,
+    "test_cer": 0.32771682340647856,
+    "test_exact_match": 0.0,
+    "test_runtime": 24.2162,
+    "test_samples_per_second": 26.346,
+    "test_steps_per_second": 6.607
+  },
+  "test_by_source": {
+    "real_pipeline_crop": {
+      "samples": 10,
+      "cer": 0.45,
+      "exact_match": 0.0,
+      "results": [
+        {
+          "file_name": "images/real_00_dossiers_specimen_10_patientes-01.png",
+          "expected": "2026-823-001",
+          "prediction": "20262-30011"
+        },
+        {
+          "file_name": "images/real_01_dossiers_specimen_10_patientes-09.png",
+          "expected": "2026-416-002",
+          "prediction": "2164-0--"
+        },
+        {
+          "file_name": "images/real_02_dossiers_specimen_10_patientes-17__1JAXyAcTm1.png",
+          "expected": "2026-711-003",
+          "prediction": "202671033"
+        },
+        {
+          "file_name": "images/real_03_dossiers_specimen_10_patientes-25__1-CjNUosOk.png",
+          "expected": "2026-995-004",
+          "prediction": "20269550044"
+        },
+        {
+          "file_name": "images/real_04_dossiers_specimen_10_patientes-33__15ITQvlEdR.png",
+          "expected": "2026-978-005",
+          "prediction": "2024996886"
+        },
+        {
+          "file_name": "images/real_05_dossiers_specimen_10_patientes-41__1PEcVIoFXJ.png",
+          "expected": "2026-987-006",
+          "prediction": "2026980606"
+        },
+        {
+          "file_name": "images/real_06_dossiers_specimen_10_patientes-49__1SVq0XRfj2.png",
+          "expected": "2026-163-007",
+          "prediction": "1167-0--"
+        },
+        {
+          "file_name": "images/real_07_dossiers_specimen_10_patientes-57.png",
+          "expected": "2026-803-008",
+          "prediction": "202698088"
+        },
+        {
+          "file_name": "images/real_08_dossiers_specimen_10_patientes-65.png",
+          "expected": "2026-842-009",
+          "prediction": "20262-2-0"
+        },
+        {
+          "file_name": "images/real_09_dossiers_specimen_10_patientes-73.png",
+          "expected": "2026-590-010",
+          "prediction": "20269-0"
+        }
+      ]
+    },
+    "synthetic_pipeline_crop": {
+      "samples": 628,
+      "cer": 0.3257696390658174,
+      "exact_match": 0.0,
+      "results": [
+        {
+          "file_name": "images/synthetic_00010_0_2023-074-121.png",
+          "expected": "2023-074-121",
+          "prediction": "202374121121"
+        },
+        {
+          "file_name": "images/synthetic_00010_1_2023-074-121.png",
+          "expected": "2023-074-121",
+          "prediction": "202374121121"
+        },
+        {
+          "file_name": "images/synthetic_00025_0_2023-195-209.png",
+          "expected": "2023-195-209",
+          "prediction": "202319520929"
+        },
+        {
+          "file_name": "images/synthetic_00025_1_2023-195-209.png",
+          "expected": "2023-195-209",
+          "prediction": "2023195209"
+        },
+        {
+          "file_name": "images/synthetic_00037_0_2023-299-784.png",
+          "expected": "2023-299-784",
+          "prediction": "2023299784"
+        },
+        {
+          "file_name": "images/synthetic_00037_1_2023-299-784.png",
+          "expected": "2023-299-784",
+          "prediction": "2023299844"
+        },
+        {
+          "file_name": "images/synthetic_00046_0_2023-382-225.png",
+          "expected": "2023-382-225",
+          "prediction": "2023282225225"
+        },
+        {
+          "file_name": "images/synthetic_00046_1_2023-382-225.png",
+          "expected": "2023-382-225",
+          "prediction": "2023282225225"
+        },
+        {
+          "file_name": "images/synthetic_00053_0_2023-430-279.png",
+          "expected": "2023-430-279",
+          "prediction": "202340279279"
+        },
+        {
+          "file_name": "images/synthetic_00053_1_2023-430-279.png",
+          "expected": "2023-430-279",
+          "prediction": "202330279279"
+        },
+        {
+          "file_name": "images/synthetic_00060_0_2023-517-944.png",
+          "expected": "2023-517-944",
+          "prediction": "20235-7-94"
+        },
+        {
+          "file_name": "images/synthetic_00060_1_2023-517-944.png",
+          "expected": "2023-517-944",
+          "prediction": "20235-1-94"
+        },
+        {
+          "file_name": "images/synthetic_00068_0_2023-557-468.png",
+          "expected": "2023-557-468",
+          "prediction": "20235-7-4-4"
+        },
+        {
+          "file_name": "images/synthetic_00068_1_2023-557-468.png",
+          "expected": "2023-557-468",
+          "prediction": "2023574668"
+        },
+        {
+          "file_name": "images/synthetic_00080_0_2023-739-911.png",
+          "expected": "2023-739-911",
+          "prediction": "20237991111"
+        },
+        {
+          "file_name": "images/synthetic_00080_1_2023-739-911.png",
+          "expected": "2023-739-911",
+          "prediction": "20237991111"
+        },
+        {
+          "file_name": "images/synthetic_00108_0_2023-970-250.png",
+          "expected": "2023-970-250",
+          "prediction": "2023970250250"
+        },
+        {
+          "file_name": "images/synthetic_00108_1_2023-970-250.png",
+          "expected": "2023-970-250",
+          "prediction": "2023970250250"
+        },
+        {
+          "file_name": "images/synthetic_00124_0_2024-118-502.png",
+          "expected": "2024-118-502",
+          "prediction": "2024118-50"
+        },
+        {
+          "file_name": "images/synthetic_00124_1_2024-118-502.png",
+          "expected": "2024-118-502",
+          "prediction": "202411822"
+        },
+        {
+          "file_name": "images/synthetic_00125_0_2024-127-670.png",
+          "expected": "2024-127-670",
+          "prediction": "2024127690"
+        },
+        {
+          "file_name": "images/synthetic_00125_1_2024-127-670.png",
+          "expected": "2024-127-670",
+          "prediction": "2024127670"
+        },
+        {
+          "file_name": "images/synthetic_00128_0_2024-143-087.png",
+          "expected": "2024-143-087",
+          "prediction": "20241408787"
+        },
+        {
+          "file_name": "images/synthetic_00128_1_2024-143-087.png",
+          "expected": "2024-143-087",
+          "prediction": "20241438787"
+        },
+        {
+          "file_name": "images/synthetic_00136_0_2024-182-377.png",
+          "expected": "2024-182-377",
+          "prediction": "2024182377377"
+        },
+        {
+          "file_name": "images/synthetic_00136_1_2024-182-377.png",
+          "expected": "2024-182-377",
+          "prediction": "2024182377777"
+        },
+        {
+          "file_name": "images/synthetic_00139_0_2024-200-538.png",
+          "expected": "2024-200-538",
+          "prediction": "20242-0-5-5"
+        },
+        {
+          "file_name": "images/synthetic_00139_1_2024-200-538.png",
+          "expected": "2024-200-538",
+          "prediction": "2024203838"
+        },
+        {
+          "file_name": "images/synthetic_00140_0_2024-214-828.png",
+          "expected": "2024-214-828",
+          "prediction": "20242142828"
+        },
+        {
+          "file_name": "images/synthetic_00140_1_2024-214-828.png",
+          "expected": "2024-214-828",
+          "prediction": "20242142828"
+        },
+        {
+          "file_name": "images/synthetic_00141_0_2024-224-837.png",
+          "expected": "2024-224-837",
+          "prediction": "20242243737"
+        },
+        {
+          "file_name": "images/synthetic_00141_1_2024-224-837.png",
+          "expected": "2024-224-837",
+          "prediction": "20242243737"
+        },
+        {
+          "file_name": "images/synthetic_00142_0_2024-229-437.png",
+          "expected": "2024-229-437",
+          "prediction": "2024229477"
+        },
+        {
+          "file_name": "images/synthetic_00142_1_2024-229-437.png",
+          "expected": "2024-229-437",
+          "prediction": "20242293737"
+        },
+        {
+          "file_name": "images/synthetic_00152_0_2024-294-108.png",
+          "expected": "2024-294-108",
+          "prediction": "20242---"
+        },
+        {
+          "file_name": "images/synthetic_00152_1_2024-294-108.png",
+          "expected": "2024-294-108",
+          "prediction": "202424108108"
+        },
+        {
+          "file_name": "images/synthetic_00183_0_2024-587-810.png",
+          "expected": "2024-587-810",
+          "prediction": "20248781010"
+        },
+        {
+          "file_name": "images/synthetic_00183_1_2024-587-810.png",
+          "expected": "2024-587-810",
+          "prediction": "20248781010"
+        },
+        {
+          "file_name": "images/synthetic_00197_0_2024-701-547.png",
+          "expected": "2024-701-547",
+          "prediction": "2024714747"
+        },
+        {
+          "file_name": "images/synthetic_00197_1_2024-701-547.png",
+          "expected": "2024-701-547",
+          "prediction": "2024714747"
+        },
+        {
+          "file_name": "images/synthetic_00217_0_2024-873-051.png",
+          "expected": "2024-873-051",
+          "prediction": "2024873051"
+        },
+        {
+          "file_name": "images/synthetic_00217_1_2024-873-051.png",
+          "expected": "2024-873-051",
+          "prediction": "2024871511"
+        },
+        {
+          "file_name": "images/synthetic_00235_0_2025-055-157.png",
+          "expected": "2025-055-157",
+          "prediction": "20250515757"
+        },
+        {
+          "file_name": "images/synthetic_00235_1_2025-055-157.png",
+          "expected": "2025-055-157",
+          "prediction": "20250515757"
+        },
+        {
+          "file_name": "images/synthetic_00264_0_2025-333-849.png",
+          "expected": "2025-333-849",
+          "prediction": "20253334949"
+        },
+        {
+          "file_name": "images/synthetic_00264_1_2025-333-849.png",
+          "expected": "2025-333-849",
+          "prediction": "20253334949"
+        },
+        {
+          "file_name": "images/synthetic_00269_0_2025-373-472.png",
+          "expected": "2025-373-472",
+          "prediction": "2025373422"
+        },
+        {
+          "file_name": "images/synthetic_00269_1_2025-373-472.png",
+          "expected": "2025-373-472",
+          "prediction": "2025373222"
+        },
+        {
+          "file_name": "images/synthetic_00286_0_2025-505-998.png",
+          "expected": "2025-505-998",
+          "prediction": "20255-0-9-9"
+        },
+        {
+          "file_name": "images/synthetic_00286_1_2025-505-998.png",
+          "expected": "2025-505-998",
+          "prediction": "20255-0-9-9"
+        },
+        {
+          "file_name": "images/synthetic_00294_0_2025-541-753.png",
+          "expected": "2025-541-753",
+          "prediction": "20251--75-75"
+        },
+        {
+          "file_name": "images/synthetic_00294_1_2025-541-753.png",
+          "expected": "2025-541-753",
+          "prediction": "202517533"
+        },
+        {
+          "file_name": "images/synthetic_00325_0_2025-838-583.png",
+          "expected": "2025-838-583",
+          "prediction": "2025838833"
+        },
+        {
+          "file_name": "images/synthetic_00325_1_2025-838-583.png",
+          "expected": "2025-838-583",
+          "prediction": "2025888883"
+        },
+        {
+          "file_name": "images/synthetic_00326_0_2025-838-981.png",
+          "expected": "2025-838-981",
+          "prediction": "20258389811"
+        },
+        {
+          "file_name": "images/synthetic_00326_1_2025-838-981.png",
+          "expected": "2025-838-981",
+          "prediction": "20258388111"
+        },
+        {
+          "file_name": "images/synthetic_00343_0_2025-990-836.png",
+          "expected": "2025-990-836",
+          "prediction": "2025993636"
+        },
+        {
+          "file_name": "images/synthetic_00343_1_2025-990-836.png",
+          "expected": "2025-990-836",
+          "prediction": "2025993636"
+        },
+        {
+          "file_name": "images/synthetic_00357_0_2026-005-927.png",
+          "expected": "2026-005-927",
+          "prediction": "20260059227"
+        },
+        {
+          "file_name": "images/synthetic_00357_1_2026-005-927.png",
+          "expected": "2026-005-927",
+          "prediction": "20260059227"
+        },
+        {
+          "file_name": "images/synthetic_00380_0_2026-019-173.png",
+          "expected": "2026-019-173",
+          "prediction": "2026101713"
+        },
+        {
+          "file_name": "images/synthetic_00380_1_2026-019-173.png",
+          "expected": "2026-019-173",
+          "prediction": "2026191733"
+        },
+        {
+          "file_name": "images/synthetic_00381_0_2026-019-312.png",
+          "expected": "2026-019-312",
+          "prediction": "2026091812"
+        },
+        {
+          "file_name": "images/synthetic_00381_1_2026-019-312.png",
+          "expected": "2026-019-312",
+          "prediction": "20260131212"
+        },
+        {
+          "file_name": "images/synthetic_00406_0_2026-029-592.png",
+          "expected": "2026-029-592",
+          "prediction": "202602922"
+        },
+        {
+          "file_name": "images/synthetic_00406_1_2026-029-592.png",
+          "expected": "2026-029-592",
+          "prediction": "2026029292"
+        },
+        {
+          "file_name": "images/synthetic_00426_0_2026-038-370.png",
+          "expected": "2026-038-370",
+          "prediction": "202608370370"
+        },
+        {
+          "file_name": "images/synthetic_00426_1_2026-038-370.png",
+          "expected": "2026-038-370",
+          "prediction": "202603370370"
+        },
+        {
+          "file_name": "images/synthetic_00452_0_2026-049-731.png",
+          "expected": "2026-049-731",
+          "prediction": "202604111"
+        },
+        {
+          "file_name": "images/synthetic_00452_1_2026-049-731.png",
+          "expected": "2026-049-731",
+          "prediction": "2026047311"
+        },
+        {
+          "file_name": "images/synthetic_00494_0_2026-068-119.png",
+          "expected": "2026-068-119",
+          "prediction": "202668119119"
+        },
+        {
+          "file_name": "images/synthetic_00494_1_2026-068-119.png",
+          "expected": "2026-068-119",
+          "prediction": "202668119119"
+        },
+        {
+          "file_name": "images/synthetic_00497_0_2026-069-398.png",
+          "expected": "2026-069-398",
+          "prediction": "2026093998"
+        },
+        {
+          "file_name": "images/synthetic_00497_1_2026-069-398.png",
+          "expected": "2026-069-398",
+          "prediction": "2026069398"
+        },
+        {
+          "file_name": "images/synthetic_00529_0_2026-085-182.png",
+          "expected": "2026-085-182",
+          "prediction": "2026085-1"
+        },
+        {
+          "file_name": "images/synthetic_00529_1_2026-085-182.png",
+          "expected": "2026-085-182",
+          "prediction": "2026088182"
+        },
+        {
+          "file_name": "images/synthetic_00546_0_2026-093-932.png",
+          "expected": "2026-093-932",
+          "prediction": "202609322"
+        },
+        {
+          "file_name": "images/synthetic_00546_1_2026-093-932.png",
+          "expected": "2026-093-932",
+          "prediction": "2026939322"
+        },
+        {
+          "file_name": "images/synthetic_00562_0_2026-099-106.png",
+          "expected": "2026-099-106",
+          "prediction": "202609106106"
+        },
+        {
+          "file_name": "images/synthetic_00562_1_2026-099-106.png",
+          "expected": "2026-099-106",
+          "prediction": "202699106106"
+        },
+        {
+          "file_name": "images/synthetic_00572_0_2026-104-934.png",
+          "expected": "2026-104-934",
+          "prediction": "202610444"
+        },
+        {
+          "file_name": "images/synthetic_00572_1_2026-104-934.png",
+          "expected": "2026-104-934",
+          "prediction": "202640444"
+        },
+        {
+          "file_name": "images/synthetic_00584_0_2026-110-803.png",
+          "expected": "2026-110-803",
+          "prediction": "2026---8033"
+        },
+        {
+          "file_name": "images/synthetic_00584_1_2026-110-803.png",
+          "expected": "2026-110-803",
+          "prediction": "2026110833"
+        },
+        {
+          "file_name": "images/synthetic_00589_0_2026-112-092.png",
+          "expected": "2026-112-092",
+          "prediction": "20261129292"
+        },
+        {
+          "file_name": "images/synthetic_00589_1_2026-112-092.png",
+          "expected": "2026-112-092",
+          "prediction": "20261129292"
+        },
+        {
+          "file_name": "images/synthetic_00597_0_2026-116-351.png",
+          "expected": "2026-116-351",
+          "prediction": "202611611"
+        },
+        {
+          "file_name": "images/synthetic_00597_1_2026-116-351.png",
+          "expected": "2026-116-351",
+          "prediction": "2026116111"
+        },
+        {
+          "file_name": "images/synthetic_00610_0_2026-123-767.png",
+          "expected": "2026-123-767",
+          "prediction": "20261236767"
+        },
+        {
+          "file_name": "images/synthetic_00610_1_2026-123-767.png",
+          "expected": "2026-123-767",
+          "prediction": "20261236767"
+        },
+        {
+          "file_name": "images/synthetic_00616_0_2026-127-853.png",
+          "expected": "2026-127-853",
+          "prediction": "20261278333"
+        },
+        {
+          "file_name": "images/synthetic_00616_1_2026-127-853.png",
+          "expected": "2026-127-853",
+          "prediction": "2026127333"
+        },
+        {
+          "file_name": "images/synthetic_00625_0_2026-132-521.png",
+          "expected": "2026-132-521",
+          "prediction": "202613211"
+        },
+        {
+          "file_name": "images/synthetic_00625_1_2026-132-521.png",
+          "expected": "2026-132-521",
+          "prediction": "2026132211"
+        },
+        {
+          "file_name": "images/synthetic_00632_0_2026-136-279.png",
+          "expected": "2026-136-279",
+          "prediction": "202613627979"
+        },
+        {
+          "file_name": "images/synthetic_00632_1_2026-136-279.png",
+          "expected": "2026-136-279",
+          "prediction": "2026136279"
+        },
+        {
+          "file_name": "images/synthetic_00640_0_2026-137-864.png",
+          "expected": "2026-137-864",
+          "prediction": "20261376464"
+        },
+        {
+          "file_name": "images/synthetic_00640_1_2026-137-864.png",
+          "expected": "2026-137-864",
+          "prediction": "20261376464"
+        },
+        {
+          "file_name": "images/synthetic_00641_0_2026-138-272.png",
+          "expected": "2026-138-272",
+          "prediction": "20261382722"
+        },
+        {
+          "file_name": "images/synthetic_00641_1_2026-138-272.png",
+          "expected": "2026-138-272",
+          "prediction": "20261382722"
+        },
+        {
+          "file_name": "images/synthetic_00643_0_2026-139-417.png",
+          "expected": "2026-139-417",
+          "prediction": "202613941717"
+        },
+        {
+          "file_name": "images/synthetic_00643_1_2026-139-417.png",
+          "expected": "2026-139-417",
+          "prediction": "202613941717"
+        },
+        {
+          "file_name": "images/synthetic_00647_0_2026-140-243.png",
+          "expected": "2026-140-243",
+          "prediction": "2026140243"
+        },
+        {
+          "file_name": "images/synthetic_00647_1_2026-140-243.png",
+          "expected": "2026-140-243",
+          "prediction": "20261402433"
+        },
+        {
+          "file_name": "images/synthetic_00650_0_2026-142-040.png",
+          "expected": "2026-142-040",
+          "prediction": "202624040"
+        },
+        {
+          "file_name": "images/synthetic_00650_1_2026-142-040.png",
+          "expected": "2026-142-040",
+          "prediction": "20261424040"
+        },
+        {
+          "file_name": "images/synthetic_00674_0_2026-154-463.png",
+          "expected": "2026-154-463",
+          "prediction": "202615433"
+        },
+        {
+          "file_name": "images/synthetic_00674_1_2026-154-463.png",
+          "expected": "2026-154-463",
+          "prediction": "2026154333"
+        },
+        {
+          "file_name": "images/synthetic_00676_0_2026-155-228.png",
+          "expected": "2026-155-228",
+          "prediction": "202615522828"
+        },
+        {
+          "file_name": "images/synthetic_00676_1_2026-155-228.png",
+          "expected": "2026-155-228",
+          "prediction": "2026155228228"
+        },
+        {
+          "file_name": "images/synthetic_00691_0_2026-163-040.png",
+          "expected": "2026-163-040",
+          "prediction": "20261634040"
+        },
+        {
+          "file_name": "images/synthetic_00691_1_2026-163-040.png",
+          "expected": "2026-163-040",
+          "prediction": "20261604040"
+        },
+        {
+          "file_name": "images/synthetic_00709_0_2026-174-918.png",
+          "expected": "2026-174-918",
+          "prediction": "20261741818"
+        },
+        {
+          "file_name": "images/synthetic_00709_1_2026-174-918.png",
+          "expected": "2026-174-918",
+          "prediction": "20261741818"
+        },
+        {
+          "file_name": "images/synthetic_00712_0_2026-175-380.png",
+          "expected": "2026-175-380",
+          "prediction": "2026175380"
+        },
+        {
+          "file_name": "images/synthetic_00712_1_2026-175-380.png",
+          "expected": "2026-175-380",
+          "prediction": "2026175380"
+        },
+        {
+          "file_name": "images/synthetic_00716_0_2026-179-010.png",
+          "expected": "2026-179-010",
+          "prediction": "20267-91010"
+        },
+        {
+          "file_name": "images/synthetic_00716_1_2026-179-010.png",
+          "expected": "2026-179-010",
+          "prediction": "20267-91010"
+        },
+        {
+          "file_name": "images/synthetic_00733_0_2026-185-211.png",
+          "expected": "2026-185-211",
+          "prediction": "202618521111"
+        },
+        {
+          "file_name": "images/synthetic_00733_1_2026-185-211.png",
+          "expected": "2026-185-211",
+          "prediction": "202618521111"
+        },
+        {
+          "file_name": "images/synthetic_00743_0_2026-190-511.png",
+          "expected": "2026-190-511",
+          "prediction": "202619011"
+        },
+        {
+          "file_name": "images/synthetic_00743_1_2026-190-511.png",
+          "expected": "2026-190-511",
+          "prediction": "20261901111"
+        },
+        {
+          "file_name": "images/synthetic_00747_0_2026-191-619.png",
+          "expected": "2026-191-619",
+          "prediction": "20261911919"
+        },
+        {
+          "file_name": "images/synthetic_00747_1_2026-191-619.png",
+          "expected": "2026-191-619",
+          "prediction": "20261911919"
+        },
+        {
+          "file_name": "images/synthetic_00748_0_2026-192-118.png",
+          "expected": "2026-192-118",
+          "prediction": "2026192118"
+        },
+        {
+          "file_name": "images/synthetic_00748_1_2026-192-118.png",
+          "expected": "2026-192-118",
+          "prediction": "2026192118"
+        },
+        {
+          "file_name": "images/synthetic_00752_0_2026-193-575.png",
+          "expected": "2026-193-575",
+          "prediction": "20269357575"
+        },
+        {
+          "file_name": "images/synthetic_00752_1_2026-193-575.png",
+          "expected": "2026-193-575",
+          "prediction": "2026-19575575"
+        },
+        {
+          "file_name": "images/synthetic_00754_0_2026-194-354.png",
+          "expected": "2026-194-354",
+          "prediction": "202619444"
+        },
+        {
+          "file_name": "images/synthetic_00754_1_2026-194-354.png",
+          "expected": "2026-194-354",
+          "prediction": "202619444"
+        },
+        {
+          "file_name": "images/synthetic_00758_0_2026-196-002.png",
+          "expected": "2026-196-002",
+          "prediction": "2026-19600022"
+        },
+        {
+          "file_name": "images/synthetic_00758_1_2026-196-002.png",
+          "expected": "2026-196-002",
+          "prediction": "2026196022"
+        },
+        {
+          "file_name": "images/synthetic_00759_0_2026-196-940.png",
+          "expected": "2026-196-940",
+          "prediction": "20261969040"
+        },
+        {
+          "file_name": "images/synthetic_00759_1_2026-196-940.png",
+          "expected": "2026-196-940",
+          "prediction": "20261964040"
+        },
+        {
+          "file_name": "images/synthetic_00775_0_2026-201-008.png",
+          "expected": "2026-201-008",
+          "prediction": "20262010088"
+        },
+        {
+          "file_name": "images/synthetic_00775_1_2026-201-008.png",
+          "expected": "2026-201-008",
+          "prediction": "20262010088"
+        },
+        {
+          "file_name": "images/synthetic_00788_0_2026-208-380.png",
+          "expected": "2026-208-380",
+          "prediction": "2026208380380"
+        },
+        {
+          "file_name": "images/synthetic_00788_1_2026-208-380.png",
+          "expected": "2026-208-380",
+          "prediction": "2026208380"
+        },
+        {
+          "file_name": "images/synthetic_00798_0_2026-213-399.png",
+          "expected": "2026-213-399",
+          "prediction": "202621339999"
+        },
+        {
+          "file_name": "images/synthetic_00798_1_2026-213-399.png",
+          "expected": "2026-213-399",
+          "prediction": "20262133919"
+        },
+        {
+          "file_name": "images/synthetic_00803_0_2026-216-633.png",
+          "expected": "2026-216-633",
+          "prediction": "20262166333"
+        },
+        {
+          "file_name": "images/synthetic_00803_1_2026-216-633.png",
+          "expected": "2026-216-633",
+          "prediction": "20262163333"
+        },
+        {
+          "file_name": "images/synthetic_00810_0_2026-220-035.png",
+          "expected": "2026-220-035",
+          "prediction": "20262203535"
+        },
+        {
+          "file_name": "images/synthetic_00810_1_2026-220-035.png",
+          "expected": "2026-220-035",
+          "prediction": "20262203535"
+        },
+        {
+          "file_name": "images/synthetic_00813_0_2026-221-505.png",
+          "expected": "2026-221-505",
+          "prediction": "202622155"
+        },
+        {
+          "file_name": "images/synthetic_00813_1_2026-221-505.png",
+          "expected": "2026-221-505",
+          "prediction": "2026221505"
+        },
+        {
+          "file_name": "images/synthetic_00822_0_2026-224-837.png",
+          "expected": "2026-224-837",
+          "prediction": "2026224377"
+        },
+        {
+          "file_name": "images/synthetic_00822_1_2026-224-837.png",
+          "expected": "2026-224-837",
+          "prediction": "20262243737"
+        },
+        {
+          "file_name": "images/synthetic_00854_0_2026-238-289.png",
+          "expected": "2026-238-289",
+          "prediction": "2026238289"
+        },
+        {
+          "file_name": "images/synthetic_00854_1_2026-238-289.png",
+          "expected": "2026-238-289",
+          "prediction": "20262382889"
+        },
+        {
+          "file_name": "images/synthetic_00856_0_2026-239-546.png",
+          "expected": "2026-239-546",
+          "prediction": "20262394646"
+        },
+        {
+          "file_name": "images/synthetic_00856_1_2026-239-546.png",
+          "expected": "2026-239-546",
+          "prediction": "20262394646"
+        },
+        {
+          "file_name": "images/synthetic_00859_0_2026-241-115.png",
+          "expected": "2026-241-115",
+          "prediction": "2026241115"
+        },
+        {
+          "file_name": "images/synthetic_00859_1_2026-241-115.png",
+          "expected": "2026-241-115",
+          "prediction": "2026241115"
+        },
+        {
+          "file_name": "images/synthetic_00873_0_2026-249-832.png",
+          "expected": "2026-249-832",
+          "prediction": "2026249222"
+        },
+        {
+          "file_name": "images/synthetic_00873_1_2026-249-832.png",
+          "expected": "2026-249-832",
+          "prediction": "2026249222"
+        },
+        {
+          "file_name": "images/synthetic_00888_0_2026-253-370.png",
+          "expected": "2026-253-370",
+          "prediction": "2026253370"
+        },
+        {
+          "file_name": "images/synthetic_00888_1_2026-253-370.png",
+          "expected": "2026-253-370",
+          "prediction": "2026253370370"
+        },
+        {
+          "file_name": "images/synthetic_00903_0_2026-260-184.png",
+          "expected": "2026-260-184",
+          "prediction": "2026260184184"
+        },
+        {
+          "file_name": "images/synthetic_00903_1_2026-260-184.png",
+          "expected": "2026-260-184",
+          "prediction": "2026260184184"
+        },
+        {
+          "file_name": "images/synthetic_00909_0_2026-261-984.png",
+          "expected": "2026-261-984",
+          "prediction": "2026618484"
+        },
+        {
+          "file_name": "images/synthetic_00909_1_2026-261-984.png",
+          "expected": "2026-261-984",
+          "prediction": "2026260844"
+        },
+        {
+          "file_name": "images/synthetic_00910_0_2026-262-104.png",
+          "expected": "2026-262-104",
+          "prediction": "20262621044"
+        },
+        {
+          "file_name": "images/synthetic_00910_1_2026-262-104.png",
+          "expected": "2026-262-104",
+          "prediction": "2026262104104"
+        },
+        {
+          "file_name": "images/synthetic_00919_0_2026-267-700.png",
+          "expected": "2026-267-700",
+          "prediction": "2026267700700"
+        },
+        {
+          "file_name": "images/synthetic_00919_1_2026-267-700.png",
+          "expected": "2026-267-700",
+          "prediction": "2026267700700"
+        },
+        {
+          "file_name": "images/synthetic_00922_0_2026-268-087.png",
+          "expected": "2026-268-087",
+          "prediction": "20262688787"
+        },
+        {
+          "file_name": "images/synthetic_00922_1_2026-268-087.png",
+          "expected": "2026-268-087",
+          "prediction": "20262688787"
+        },
+        {
+          "file_name": "images/synthetic_00926_0_2026-269-267.png",
+          "expected": "2026-269-267",
+          "prediction": "202626926767"
+        },
+        {
+          "file_name": "images/synthetic_00926_1_2026-269-267.png",
+          "expected": "2026-269-267",
+          "prediction": "202626926767"
+        },
+        {
+          "file_name": "images/synthetic_00957_0_2026-283-537.png",
+          "expected": "2026-283-537",
+          "prediction": "20262833737"
+        },
+        {
+          "file_name": "images/synthetic_00957_1_2026-283-537.png",
+          "expected": "2026-283-537",
+          "prediction": "2026283377"
+        },
+        {
+          "file_name": "images/synthetic_00958_0_2026-284-145.png",
+          "expected": "2026-284-145",
+          "prediction": "2026284145145"
+        },
+        {
+          "file_name": "images/synthetic_00958_1_2026-284-145.png",
+          "expected": "2026-284-145",
+          "prediction": "2026284145"
+        },
+        {
+          "file_name": "images/synthetic_00959_0_2026-284-173.png",
+          "expected": "2026-284-173",
+          "prediction": "202628473"
+        },
+        {
+          "file_name": "images/synthetic_00959_1_2026-284-173.png",
+          "expected": "2026-284-173",
+          "prediction": "202628413"
+        },
+        {
+          "file_name": "images/synthetic_00971_0_2026-291-320.png",
+          "expected": "2026-291-320",
+          "prediction": "2026291320320"
+        },
+        {
+          "file_name": "images/synthetic_00971_1_2026-291-320.png",
+          "expected": "2026-291-320",
+          "prediction": "2026291320"
+        },
+        {
+          "file_name": "images/synthetic_00976_0_2026-293-167.png",
+          "expected": "2026-293-167",
+          "prediction": "2026293167167"
+        },
+        {
+          "file_name": "images/synthetic_00976_1_2026-293-167.png",
+          "expected": "2026-293-167",
+          "prediction": "202629316767"
+        },
+        {
+          "file_name": "images/synthetic_00981_0_2026-295-362.png",
+          "expected": "2026-295-362",
+          "prediction": "2026295322"
+        },
+        {
+          "file_name": "images/synthetic_00981_1_2026-295-362.png",
+          "expected": "2026-295-362",
+          "prediction": "2026295262"
+        },
+        {
+          "file_name": "images/synthetic_00986_0_2026-296-595.png",
+          "expected": "2026-296-595",
+          "prediction": "20262--5-5"
+        },
+        {
+          "file_name": "images/synthetic_00986_1_2026-296-595.png",
+          "expected": "2026-296-595",
+          "prediction": "2026299595"
+        },
+        {
+          "file_name": "images/synthetic_00988_0_2026-296-845.png",
+          "expected": "2026-296-845",
+          "prediction": "20262264545"
+        },
+        {
+          "file_name": "images/synthetic_00988_1_2026-296-845.png",
+          "expected": "2026-296-845",
+          "prediction": "20262984545"
+        },
+        {
+          "file_name": "images/synthetic_00991_0_2026-298-645.png",
+          "expected": "2026-298-645",
+          "prediction": "2026298645645"
+        },
+        {
+          "file_name": "images/synthetic_00991_1_2026-298-645.png",
+          "expected": "2026-298-645",
+          "prediction": "20262986565"
+        },
+        {
+          "file_name": "images/synthetic_01000_0_2026-305-295.png",
+          "expected": "2026-305-295",
+          "prediction": "2026305295295"
+        },
+        {
+          "file_name": "images/synthetic_01000_1_2026-305-295.png",
+          "expected": "2026-305-295",
+          "prediction": "2026305295295"
+        },
+        {
+          "file_name": "images/synthetic_01004_0_2026-308-498.png",
+          "expected": "2026-308-498",
+          "prediction": "20263089898"
+        },
+        {
+          "file_name": "images/synthetic_01004_1_2026-308-498.png",
+          "expected": "2026-308-498",
+          "prediction": "20263089898"
+        },
+        {
+          "file_name": "images/synthetic_01007_0_2026-309-755.png",
+          "expected": "2026-309-755",
+          "prediction": "20263097555"
+        },
+        {
+          "file_name": "images/synthetic_01007_1_2026-309-755.png",
+          "expected": "2026-309-755",
+          "prediction": "20263097555"
+        },
+        {
+          "file_name": "images/synthetic_01020_0_2026-315-710.png",
+          "expected": "2026-315-710",
+          "prediction": "20263157010"
+        },
+        {
+          "file_name": "images/synthetic_01020_1_2026-315-710.png",
+          "expected": "2026-315-710",
+          "prediction": "20263151710"
+        },
+        {
+          "file_name": "images/synthetic_01060_0_2026-334-534.png",
+          "expected": "2026-334-534",
+          "prediction": "2026334444"
+        },
+        {
+          "file_name": "images/synthetic_01060_1_2026-334-534.png",
+          "expected": "2026-334-534",
+          "prediction": "2026334444"
+        },
+        {
+          "file_name": "images/synthetic_01062_0_2026-336-612.png",
+          "expected": "2026-336-612",
+          "prediction": "20263361212"
+        },
+        {
+          "file_name": "images/synthetic_01062_1_2026-336-612.png",
+          "expected": "2026-336-612",
+          "prediction": "20263361212"
+        },
+        {
+          "file_name": "images/synthetic_01063_0_2026-336-915.png",
+          "expected": "2026-336-915",
+          "prediction": "20263361515"
+        },
+        {
+          "file_name": "images/synthetic_01063_1_2026-336-915.png",
+          "expected": "2026-336-915",
+          "prediction": "20263361515"
+        },
+        {
+          "file_name": "images/synthetic_01075_0_2026-342-522.png",
+          "expected": "2026-342-522",
+          "prediction": "202634222"
+        },
+        {
+          "file_name": "images/synthetic_01075_1_2026-342-522.png",
+          "expected": "2026-342-522",
+          "prediction": "20263-4-52"
+        },
+        {
+          "file_name": "images/synthetic_01077_0_2026-343-404.png",
+          "expected": "2026-343-404",
+          "prediction": "20263434044"
+        },
+        {
+          "file_name": "images/synthetic_01077_1_2026-343-404.png",
+          "expected": "2026-343-404",
+          "prediction": "20263434044"
+        },
+        {
+          "file_name": "images/synthetic_01080_0_2026-344-449.png",
+          "expected": "2026-344-449",
+          "prediction": "2026344449449"
+        },
+        {
+          "file_name": "images/synthetic_01080_1_2026-344-449.png",
+          "expected": "2026-344-449",
+          "prediction": "2026344449449"
+        },
+        {
+          "file_name": "images/synthetic_01093_0_2026-348-902.png",
+          "expected": "2026-348-902",
+          "prediction": "2026348222"
+        },
+        {
+          "file_name": "images/synthetic_01093_1_2026-348-902.png",
+          "expected": "2026-348-902",
+          "prediction": "2026348922"
+        },
+        {
+          "file_name": "images/synthetic_01100_0_2026-351-245.png",
+          "expected": "2026-351-245",
+          "prediction": "20261245245"
+        },
+        {
+          "file_name": "images/synthetic_01100_1_2026-351-245.png",
+          "expected": "2026-351-245",
+          "prediction": "20263----"
+        },
+        {
+          "file_name": "images/synthetic_01101_0_2026-351-732.png",
+          "expected": "2026-351-732",
+          "prediction": "2026357322"
+        },
+        {
+          "file_name": "images/synthetic_01101_1_2026-351-732.png",
+          "expected": "2026-351-732",
+          "prediction": "202635722"
+        },
+        {
+          "file_name": "images/synthetic_01117_0_2026-357-073.png",
+          "expected": "2026-357-073",
+          "prediction": "202635073"
+        },
+        {
+          "file_name": "images/synthetic_01117_1_2026-357-073.png",
+          "expected": "2026-357-073",
+          "prediction": "20263-0-70"
+        },
+        {
+          "file_name": "images/synthetic_01119_0_2026-357-294.png",
+          "expected": "2026-357-294",
+          "prediction": "202635719494"
+        },
+        {
+          "file_name": "images/synthetic_01119_1_2026-357-294.png",
+          "expected": "2026-357-294",
+          "prediction": "2026357194"
+        },
+        {
+          "file_name": "images/synthetic_01126_0_2026-360-469.png",
+          "expected": "2026-360-469",
+          "prediction": "20263606969"
+        },
+        {
+          "file_name": "images/synthetic_01126_1_2026-360-469.png",
+          "expected": "2026-360-469",
+          "prediction": "20263604969"
+        },
+        {
+          "file_name": "images/synthetic_01142_0_2026-366-173.png",
+          "expected": "2026-366-173",
+          "prediction": "2026367373"
+        },
+        {
+          "file_name": "images/synthetic_01142_1_2026-366-173.png",
+          "expected": "2026-366-173",
+          "prediction": "2026361773"
+        },
+        {
+          "file_name": "images/synthetic_01143_0_2026-366-495.png",
+          "expected": "2026-366-495",
+          "prediction": "202636495495"
+        },
+        {
+          "file_name": "images/synthetic_01143_1_2026-366-495.png",
+          "expected": "2026-366-495",
+          "prediction": "20263649595"
+        },
+        {
+          "file_name": "images/synthetic_01144_0_2026-367-170.png",
+          "expected": "2026-367-170",
+          "prediction": "2026367170170"
+        },
+        {
+          "file_name": "images/synthetic_01144_1_2026-367-170.png",
+          "expected": "2026-367-170",
+          "prediction": "2026367170"
+        },
+        {
+          "file_name": "images/synthetic_01154_0_2026-371-661.png",
+          "expected": "2026-371-661",
+          "prediction": "2026371611"
+        },
+        {
+          "file_name": "images/synthetic_01154_1_2026-371-661.png",
+          "expected": "2026-371-661",
+          "prediction": "20263716161"
+        },
+        {
+          "file_name": "images/synthetic_01158_0_2026-372-310.png",
+          "expected": "2026-372-310",
+          "prediction": "20263----"
+        },
+        {
+          "file_name": "images/synthetic_01158_1_2026-372-310.png",
+          "expected": "2026-372-310",
+          "prediction": "20263----"
+        },
+        {
+          "file_name": "images/synthetic_01201_0_2026-390-353.png",
+          "expected": "2026-390-353",
+          "prediction": "202639035333"
+        },
+        {
+          "file_name": "images/synthetic_01201_1_2026-390-353.png",
+          "expected": "2026-390-353",
+          "prediction": "20263903533"
+        },
+        {
+          "file_name": "images/synthetic_01203_0_2026-392-840.png",
+          "expected": "2026-392-840",
+          "prediction": "20263--8-"
+        },
+        {
+          "file_name": "images/synthetic_01203_1_2026-392-840.png",
+          "expected": "2026-392-840",
+          "prediction": "20262924040"
+        },
+        {
+          "file_name": "images/synthetic_01209_0_2026-397-848.png",
+          "expected": "2026-397-848",
+          "prediction": "2026974848"
+        },
+        {
+          "file_name": "images/synthetic_01209_1_2026-397-848.png",
+          "expected": "2026-397-848",
+          "prediction": "2026794898"
+        },
+        {
+          "file_name": "images/synthetic_01213_0_2026-399-120.png",
+          "expected": "2026-399-120",
+          "prediction": "2026399120"
+        },
+        {
+          "file_name": "images/synthetic_01213_1_2026-399-120.png",
+          "expected": "2026-399-120",
+          "prediction": "2026399120"
+        },
+        {
+          "file_name": "images/synthetic_01216_0_2026-400-209.png",
+          "expected": "2026-400-209",
+          "prediction": "2026-400209209"
+        },
+        {
+          "file_name": "images/synthetic_01216_1_2026-400-209.png",
+          "expected": "2026-400-209",
+          "prediction": "2026-40020929"
+        },
+        {
+          "file_name": "images/synthetic_01225_0_2026-404-265.png",
+          "expected": "2026-404-265",
+          "prediction": "202640426565"
+        },
+        {
+          "file_name": "images/synthetic_01225_1_2026-404-265.png",
+          "expected": "2026-404-265",
+          "prediction": "20264042666"
+        },
+        {
+          "file_name": "images/synthetic_01230_0_2026-405-964.png",
+          "expected": "2026-405-964",
+          "prediction": "20264056464"
+        },
+        {
+          "file_name": "images/synthetic_01230_1_2026-405-964.png",
+          "expected": "2026-405-964",
+          "prediction": "20264056464"
+        },
+        {
+          "file_name": "images/synthetic_01231_0_2026-406-601.png",
+          "expected": "2026-406-601",
+          "prediction": "20264064011"
+        },
+        {
+          "file_name": "images/synthetic_01231_1_2026-406-601.png",
+          "expected": "2026-406-601",
+          "prediction": "2026406601"
+        },
+        {
+          "file_name": "images/synthetic_01234_0_2026-407-248.png",
+          "expected": "2026-407-248",
+          "prediction": "2026407248148"
+        },
+        {
+          "file_name": "images/synthetic_01234_1_2026-407-248.png",
+          "expected": "2026-407-248",
+          "prediction": "2026407248248"
+        },
+        {
+          "file_name": "images/synthetic_01238_0_2026-409-655.png",
+          "expected": "2026-409-655",
+          "prediction": "202696555"
+        },
+        {
+          "file_name": "images/synthetic_01238_1_2026-409-655.png",
+          "expected": "2026-409-655",
+          "prediction": "202696555"
+        },
+        {
+          "file_name": "images/synthetic_01250_0_2026-414-743.png",
+          "expected": "2026-414-743",
+          "prediction": "20264--7433"
+        },
+        {
+          "file_name": "images/synthetic_01250_1_2026-414-743.png",
+          "expected": "2026-414-743",
+          "prediction": "20264--7433"
+        },
+        {
+          "file_name": "images/synthetic_01251_0_2026-415-109.png",
+          "expected": "2026-415-109",
+          "prediction": "202641510999"
+        },
+        {
+          "file_name": "images/synthetic_01251_1_2026-415-109.png",
+          "expected": "2026-415-109",
+          "prediction": "2026415109"
+        },
+        {
+          "file_name": "images/synthetic_01259_0_2026-419-049.png",
+          "expected": "2026-419-049",
+          "prediction": "2026414949"
+        },
+        {
+          "file_name": "images/synthetic_01259_1_2026-419-049.png",
+          "expected": "2026-419-049",
+          "prediction": "20269-0-0-9"
+        },
+        {
+          "file_name": "images/synthetic_01260_0_2026-419-367.png",
+          "expected": "2026-419-367",
+          "prediction": "20269367367"
+        },
+        {
+          "file_name": "images/synthetic_01260_1_2026-419-367.png",
+          "expected": "2026-419-367",
+          "prediction": "2026919367"
+        },
+        {
+          "file_name": "images/synthetic_01264_0_2026-420-291.png",
+          "expected": "2026-420-291",
+          "prediction": "2026420291"
+        },
+        {
+          "file_name": "images/synthetic_01264_1_2026-420-291.png",
+          "expected": "2026-420-291",
+          "prediction": "202642029191"
+        },
+        {
+          "file_name": "images/synthetic_01266_0_2026-420-597.png",
+          "expected": "2026-420-597",
+          "prediction": "20264209797"
+        },
+        {
+          "file_name": "images/synthetic_01266_1_2026-420-597.png",
+          "expected": "2026-420-597",
+          "prediction": "20264209797"
+        },
+        {
+          "file_name": "images/synthetic_01269_0_2026-421-888.png",
+          "expected": "2026-421-888",
+          "prediction": "20264218888"
+        },
+        {
+          "file_name": "images/synthetic_01269_1_2026-421-888.png",
+          "expected": "2026-421-888",
+          "prediction": "20264218888"
+        },
+        {
+          "file_name": "images/synthetic_01273_0_2026-423-943.png",
+          "expected": "2026-423-943",
+          "prediction": "20264234333"
+        },
+        {
+          "file_name": "images/synthetic_01273_1_2026-423-943.png",
+          "expected": "2026-423-943",
+          "prediction": "20264234333"
+        },
+        {
+          "file_name": "images/synthetic_01289_0_2026-431-627.png",
+          "expected": "2026-431-627",
+          "prediction": "20261--6-6"
+        },
+        {
+          "file_name": "images/synthetic_01289_1_2026-431-627.png",
+          "expected": "2026-431-627",
+          "prediction": "20264--6-6"
+        },
+        {
+          "file_name": "images/synthetic_01294_0_2026-432-341.png",
+          "expected": "2026-432-341",
+          "prediction": "20263323411"
+        },
+        {
+          "file_name": "images/synthetic_01294_1_2026-432-341.png",
+          "expected": "2026-432-341",
+          "prediction": "20262323411"
+        },
+        {
+          "file_name": "images/synthetic_01296_0_2026-434-160.png",
+          "expected": "2026-434-160",
+          "prediction": "202643416060"
+        },
+        {
+          "file_name": "images/synthetic_01296_1_2026-434-160.png",
+          "expected": "2026-434-160",
+          "prediction": "2026434160160"
+        },
+        {
+          "file_name": "images/synthetic_01299_0_2026-435-985.png",
+          "expected": "2026-435-985",
+          "prediction": "20264359885"
+        },
+        {
+          "file_name": "images/synthetic_01299_1_2026-435-985.png",
+          "expected": "2026-435-985",
+          "prediction": "20264358585"
+        },
+        {
+          "file_name": "images/synthetic_01302_0_2026-437-147.png",
+          "expected": "2026-437-147",
+          "prediction": "202647147147"
+        },
+        {
+          "file_name": "images/synthetic_01302_1_2026-437-147.png",
+          "expected": "2026-437-147",
+          "prediction": "202637147147"
+        },
+        {
+          "file_name": "images/synthetic_01344_0_2026-455-540.png",
+          "expected": "2026-455-540",
+          "prediction": "20264554040"
+        },
+        {
+          "file_name": "images/synthetic_01344_1_2026-455-540.png",
+          "expected": "2026-455-540",
+          "prediction": "20264554040"
+        },
+        {
+          "file_name": "images/synthetic_01365_0_2026-464-286.png",
+          "expected": "2026-464-286",
+          "prediction": "20266428686"
+        },
+        {
+          "file_name": "images/synthetic_01365_1_2026-464-286.png",
+          "expected": "2026-464-286",
+          "prediction": "20264286286"
+        },
+        {
+          "file_name": "images/synthetic_01370_0_2026-465-905.png",
+          "expected": "2026-465-905",
+          "prediction": "20264650505"
+        },
+        {
+          "file_name": "images/synthetic_01370_1_2026-465-905.png",
+          "expected": "2026-465-905",
+          "prediction": "2026465555"
+        },
+        {
+          "file_name": "images/synthetic_01372_0_2026-466-467.png",
+          "expected": "2026-466-467",
+          "prediction": "20264666767"
+        },
+        {
+          "file_name": "images/synthetic_01372_1_2026-466-467.png",
+          "expected": "2026-466-467",
+          "prediction": "20264666767"
+        },
+        {
+          "file_name": "images/synthetic_01386_0_2026-475-718.png",
+          "expected": "2026-475-718",
+          "prediction": "20267757818"
+        },
+        {
+          "file_name": "images/synthetic_01386_1_2026-475-718.png",
+          "expected": "2026-475-718",
+          "prediction": "2026471818"
+        },
+        {
+          "file_name": "images/synthetic_01389_0_2026-479-711.png",
+          "expected": "2026-479-711",
+          "prediction": "2026797111"
+        },
+        {
+          "file_name": "images/synthetic_01389_1_2026-479-711.png",
+          "expected": "2026-479-711",
+          "prediction": "20262797111"
+        },
+        {
+          "file_name": "images/synthetic_01395_0_2026-481-143.png",
+          "expected": "2026-481-143",
+          "prediction": "202681143143"
+        },
+        {
+          "file_name": "images/synthetic_01395_1_2026-481-143.png",
+          "expected": "2026-481-143",
+          "prediction": "2026811433"
+        },
+        {
+          "file_name": "images/synthetic_01401_0_2026-484-026.png",
+          "expected": "2026-484-026",
+          "prediction": "2026482626"
+        },
+        {
+          "file_name": "images/synthetic_01401_1_2026-484-026.png",
+          "expected": "2026-484-026",
+          "prediction": "20264802626"
+        },
+        {
+          "file_name": "images/synthetic_01405_0_2026-485-572.png",
+          "expected": "2026-485-572",
+          "prediction": "20264657272"
+        },
+        {
+          "file_name": "images/synthetic_01405_1_2026-485-572.png",
+          "expected": "2026-485-572",
+          "prediction": "2026487222"
+        },
+        {
+          "file_name": "images/synthetic_01415_0_2026-488-759.png",
+          "expected": "2026-488-759",
+          "prediction": "2026487559"
+        },
+        {
+          "file_name": "images/synthetic_01415_1_2026-488-759.png",
+          "expected": "2026-488-759",
+          "prediction": "2026487559"
+        },
+        {
+          "file_name": "images/synthetic_01417_0_2026-489-790.png",
+          "expected": "2026-489-790",
+          "prediction": "20268997090"
+        },
+        {
+          "file_name": "images/synthetic_01417_1_2026-489-790.png",
+          "expected": "2026-489-790",
+          "prediction": "20268997090"
+        },
+        {
+          "file_name": "images/synthetic_01432_0_2026-496-582.png",
+          "expected": "2026-496-582",
+          "prediction": "202696822"
+        },
+        {
+          "file_name": "images/synthetic_01432_1_2026-496-582.png",
+          "expected": "2026-496-582",
+          "prediction": "2026965822"
+        },
+        {
+          "file_name": "images/synthetic_01441_0_2026-502-390.png",
+          "expected": "2026-502-390",
+          "prediction": "20265-0--"
+        },
+        {
+          "file_name": "images/synthetic_01441_1_2026-502-390.png",
+          "expected": "2026-502-390",
+          "prediction": "20265-0--"
+        },
+        {
+          "file_name": "images/synthetic_01447_0_2026-505-250.png",
+          "expected": "2026-505-250",
+          "prediction": "20265-0--"
+        },
+        {
+          "file_name": "images/synthetic_01447_1_2026-505-250.png",
+          "expected": "2026-505-250",
+          "prediction": "20265-0--"
+        },
+        {
+          "file_name": "images/synthetic_01450_0_2026-505-795.png",
+          "expected": "2026-505-795",
+          "prediction": "20265799595"
+        },
+        {
+          "file_name": "images/synthetic_01450_1_2026-505-795.png",
+          "expected": "2026-505-795",
+          "prediction": "202657995"
+        },
+        {
+          "file_name": "images/synthetic_01452_0_2026-506-486.png",
+          "expected": "2026-506-486",
+          "prediction": "20265064686"
+        },
+        {
+          "file_name": "images/synthetic_01452_1_2026-506-486.png",
+          "expected": "2026-506-486",
+          "prediction": "202650668686"
+        },
+        {
+          "file_name": "images/synthetic_01454_0_2026-506-853.png",
+          "expected": "2026-506-853",
+          "prediction": "2026506853"
+        },
+        {
+          "file_name": "images/synthetic_01454_1_2026-506-853.png",
+          "expected": "2026-506-853",
+          "prediction": "2026506333"
+        },
+        {
+          "file_name": "images/synthetic_01456_0_2026-508-510.png",
+          "expected": "2026-508-510",
+          "prediction": "202650510510"
+        },
+        {
+          "file_name": "images/synthetic_01456_1_2026-508-510.png",
+          "expected": "2026-508-510",
+          "prediction": "20266851010"
+        },
+        {
+          "file_name": "images/synthetic_01466_0_2026-514-743.png",
+          "expected": "2026-514-743",
+          "prediction": "20264--74433"
+        },
+        {
+          "file_name": "images/synthetic_01466_1_2026-514-743.png",
+          "expected": "2026-514-743",
+          "prediction": "202614333"
+        },
+        {
+          "file_name": "images/synthetic_01482_0_2026-520-436.png",
+          "expected": "2026-520-436",
+          "prediction": "202650436"
+        },
+        {
+          "file_name": "images/synthetic_01482_1_2026-520-436.png",
+          "expected": "2026-520-436",
+          "prediction": "20265-0-4-"
+        },
+        {
+          "file_name": "images/synthetic_01483_0_2026-520-584.png",
+          "expected": "2026-520-584",
+          "prediction": "202650844"
+        },
+        {
+          "file_name": "images/synthetic_01483_1_2026-520-584.png",
+          "expected": "2026-520-584",
+          "prediction": "202650844"
+        },
+        {
+          "file_name": "images/synthetic_01489_0_2026-522-738.png",
+          "expected": "2026-522-738",
+          "prediction": "2026523838"
+        },
+        {
+          "file_name": "images/synthetic_01489_1_2026-522-738.png",
+          "expected": "2026-522-738",
+          "prediction": "2026523838"
+        },
+        {
+          "file_name": "images/synthetic_01491_0_2026-523-442.png",
+          "expected": "2026-523-442",
+          "prediction": "20262-344222"
+        },
+        {
+          "file_name": "images/synthetic_01491_1_2026-523-442.png",
+          "expected": "2026-523-442",
+          "prediction": "202623442442"
+        },
+        {
+          "file_name": "images/synthetic_01503_0_2026-528-555.png",
+          "expected": "2026-528-555",
+          "prediction": "202628555555"
+        },
+        {
+          "file_name": "images/synthetic_01503_1_2026-528-555.png",
+          "expected": "2026-528-555",
+          "prediction": "202652555555"
+        },
+        {
+          "file_name": "images/synthetic_01505_0_2026-530-245.png",
+          "expected": "2026-530-245",
+          "prediction": "202650245245"
+        },
+        {
+          "file_name": "images/synthetic_01505_1_2026-530-245.png",
+          "expected": "2026-530-245",
+          "prediction": "202650245245"
+        },
+        {
+          "file_name": "images/synthetic_01508_0_2026-532-580.png",
+          "expected": "2026-532-580",
+          "prediction": "2026258080"
+        },
+        {
+          "file_name": "images/synthetic_01508_1_2026-532-580.png",
+          "expected": "2026-532-580",
+          "prediction": "202625-8"
+        },
+        {
+          "file_name": "images/synthetic_01528_0_2026-538-467.png",
+          "expected": "2026-538-467",
+          "prediction": "2026386767"
+        },
+        {
+          "file_name": "images/synthetic_01528_1_2026-538-467.png",
+          "expected": "2026-538-467",
+          "prediction": "20263866767"
+        },
+        {
+          "file_name": "images/synthetic_01550_0_2026-546-750.png",
+          "expected": "2026-546-750",
+          "prediction": "20265-6750750"
+        },
+        {
+          "file_name": "images/synthetic_01550_1_2026-546-750.png",
+          "expected": "2026-546-750",
+          "prediction": "20265-675050"
+        },
+        {
+          "file_name": "images/synthetic_01558_0_2026-549-002.png",
+          "expected": "2026-549-002",
+          "prediction": "2026590022"
+        },
+        {
+          "file_name": "images/synthetic_01558_1_2026-549-002.png",
+          "expected": "2026-549-002",
+          "prediction": "2026490022"
+        },
+        {
+          "file_name": "images/synthetic_01559_0_2026-549-320.png",
+          "expected": "2026-549-320",
+          "prediction": "202649320320"
+        },
+        {
+          "file_name": "images/synthetic_01559_1_2026-549-320.png",
+          "expected": "2026-549-320",
+          "prediction": "202654320320"
+        },
+        {
+          "file_name": "images/synthetic_01613_0_2026-576-127.png",
+          "expected": "2026-576-127",
+          "prediction": "20267612727"
+        },
+        {
+          "file_name": "images/synthetic_01613_1_2026-576-127.png",
+          "expected": "2026-576-127",
+          "prediction": "20267612727"
+        },
+        {
+          "file_name": "images/synthetic_01614_0_2026-576-138.png",
+          "expected": "2026-576-138",
+          "prediction": "202676138138"
+        },
+        {
+          "file_name": "images/synthetic_01614_1_2026-576-138.png",
+          "expected": "2026-576-138",
+          "prediction": "202676138138"
+        },
+        {
+          "file_name": "images/synthetic_01615_0_2026-577-311.png",
+          "expected": "2026-577-311",
+          "prediction": "20265773111"
+        },
+        {
+          "file_name": "images/synthetic_01615_1_2026-577-311.png",
+          "expected": "2026-577-311",
+          "prediction": "20267311311"
+        },
+        {
+          "file_name": "images/synthetic_01626_0_2026-585-113.png",
+          "expected": "2026-585-113",
+          "prediction": "20265-8-13"
+        },
+        {
+          "file_name": "images/synthetic_01626_1_2026-585-113.png",
+          "expected": "2026-585-113",
+          "prediction": "20265-8-13"
+        },
+        {
+          "file_name": "images/synthetic_01636_0_2026-586-945.png",
+          "expected": "2026-586-945",
+          "prediction": "20266864545"
+        },
+        {
+          "file_name": "images/synthetic_01636_1_2026-586-945.png",
+          "expected": "2026-586-945",
+          "prediction": "20266864545"
+        },
+        {
+          "file_name": "images/synthetic_01637_0_2026-588-402.png",
+          "expected": "2026-588-402",
+          "prediction": "2026884022"
+        },
+        {
+          "file_name": "images/synthetic_01637_1_2026-588-402.png",
+          "expected": "2026-588-402",
+          "prediction": "2026584022"
+        },
+        {
+          "file_name": "images/synthetic_01638_0_2026-588-780.png",
+          "expected": "2026-588-780",
+          "prediction": "20265878080"
+        },
+        {
+          "file_name": "images/synthetic_01638_1_2026-588-780.png",
+          "expected": "2026-588-780",
+          "prediction": "20268878080"
+        },
+        {
+          "file_name": "images/synthetic_01643_0_2026-589-895.png",
+          "expected": "2026-589-895",
+          "prediction": "2026598995"
+        },
+        {
+          "file_name": "images/synthetic_01643_1_2026-589-895.png",
+          "expected": "2026-589-895",
+          "prediction": "2026898995"
+        },
+        {
+          "file_name": "images/synthetic_01648_0_2026-592-507.png",
+          "expected": "2026-592-507",
+          "prediction": "202692777"
+        },
+        {
+          "file_name": "images/synthetic_01648_1_2026-592-507.png",
+          "expected": "2026-592-507",
+          "prediction": "202692777"
+        },
+        {
+          "file_name": "images/synthetic_01660_0_2026-598-045.png",
+          "expected": "2026-598-045",
+          "prediction": "20265-8054545"
+        },
+        {
+          "file_name": "images/synthetic_01660_1_2026-598-045.png",
+          "expected": "2026-598-045",
+          "prediction": "20269-0-044545"
+        },
+        {
+          "file_name": "images/synthetic_01661_0_2026-598-051.png",
+          "expected": "2026-598-051",
+          "prediction": "202698511"
+        },
+        {
+          "file_name": "images/synthetic_01661_1_2026-598-051.png",
+          "expected": "2026-598-051",
+          "prediction": "20269-0-0-"
+        },
+        {
+          "file_name": "images/synthetic_01666_0_2026-600-414.png",
+          "expected": "2026-600-414",
+          "prediction": "20266001414"
+        },
+        {
+          "file_name": "images/synthetic_01666_1_2026-600-414.png",
+          "expected": "2026-600-414",
+          "prediction": "2026600414"
+        },
+        {
+          "file_name": "images/synthetic_01667_0_2026-600-941.png",
+          "expected": "2026-600-941",
+          "prediction": "2026600411"
+        },
+        {
+          "file_name": "images/synthetic_01667_1_2026-600-941.png",
+          "expected": "2026-600-941",
+          "prediction": "202660011"
+        },
+        {
+          "file_name": "images/synthetic_01671_0_2026-603-849.png",
+          "expected": "2026-603-849",
+          "prediction": "20266-0-8-8"
+        },
+        {
+          "file_name": "images/synthetic_01671_1_2026-603-849.png",
+          "expected": "2026-603-849",
+          "prediction": "2026603-4"
+        },
+        {
+          "file_name": "images/synthetic_01676_0_2026-606-745.png",
+          "expected": "2026-606-745",
+          "prediction": "202666-74545"
+        },
+        {
+          "file_name": "images/synthetic_01676_1_2026-606-745.png",
+          "expected": "2026-606-745",
+          "prediction": "202665-7"
+        },
+        {
+          "file_name": "images/synthetic_01690_0_2026-612-406.png",
+          "expected": "2026-612-406",
+          "prediction": "2026124066"
+        },
+        {
+          "file_name": "images/synthetic_01690_1_2026-612-406.png",
+          "expected": "2026-612-406",
+          "prediction": "20261246060"
+        },
+        {
+          "file_name": "images/synthetic_01694_0_2026-612-873.png",
+          "expected": "2026-612-873",
+          "prediction": "2026128733"
+        },
+        {
+          "file_name": "images/synthetic_01694_1_2026-612-873.png",
+          "expected": "2026-612-873",
+          "prediction": "202661373"
+        },
+        {
+          "file_name": "images/synthetic_01695_0_2026-612-957.png",
+          "expected": "2026-612-957",
+          "prediction": "20261-2-95"
+        },
+        {
+          "file_name": "images/synthetic_01695_1_2026-612-957.png",
+          "expected": "2026-612-957",
+          "prediction": "20261277"
+        },
+        {
+          "file_name": "images/synthetic_01703_0_2026-617-094.png",
+          "expected": "2026-617-094",
+          "prediction": "20266-79494"
+        },
+        {
+          "file_name": "images/synthetic_01703_1_2026-617-094.png",
+          "expected": "2026-617-094",
+          "prediction": "20266-7-94"
+        },
+        {
+          "file_name": "images/synthetic_01707_0_2026-618-364.png",
+          "expected": "2026-618-364",
+          "prediction": "20266144"
+        },
+        {
+          "file_name": "images/synthetic_01707_1_2026-618-364.png",
+          "expected": "2026-618-364",
+          "prediction": "2026616464"
+        },
+        {
+          "file_name": "images/synthetic_01713_0_2026-620-980.png",
+          "expected": "2026-620-980",
+          "prediction": "20266-0-9-"
+        },
+        {
+          "file_name": "images/synthetic_01713_1_2026-620-980.png",
+          "expected": "2026-620-980",
+          "prediction": "20266-0-9-9"
+        },
+        {
+          "file_name": "images/synthetic_01734_0_2026-632-581.png",
+          "expected": "2026-632-581",
+          "prediction": "2026228111"
+        },
+        {
+          "file_name": "images/synthetic_01734_1_2026-632-581.png",
+          "expected": "2026-632-581",
+          "prediction": "2026328111"
+        },
+        {
+          "file_name": "images/synthetic_01735_0_2026-633-702.png",
+          "expected": "2026-633-702",
+          "prediction": "202663222"
+        },
+        {
+          "file_name": "images/synthetic_01735_1_2026-633-702.png",
+          "expected": "2026-633-702",
+          "prediction": "2026833222"
+        },
+        {
+          "file_name": "images/synthetic_01748_0_2026-643-179.png",
+          "expected": "2026-643-179",
+          "prediction": "20266431979"
+        },
+        {
+          "file_name": "images/synthetic_01748_1_2026-643-179.png",
+          "expected": "2026-643-179",
+          "prediction": "20266431979"
+        },
+        {
+          "file_name": "images/synthetic_01752_0_2026-644-014.png",
+          "expected": "2026-644-014",
+          "prediction": "20266401414"
+        },
+        {
+          "file_name": "images/synthetic_01752_1_2026-644-014.png",
+          "expected": "2026-644-014",
+          "prediction": "2026641414"
+        },
+        {
+          "file_name": "images/synthetic_01766_0_2026-650-579.png",
+          "expected": "2026-650-579",
+          "prediction": "20266507979"
+        },
+        {
+          "file_name": "images/synthetic_01766_1_2026-650-579.png",
+          "expected": "2026-650-579",
+          "prediction": "20266507979"
+        },
+        {
+          "file_name": "images/synthetic_01786_0_2026-659-429.png",
+          "expected": "2026-659-429",
+          "prediction": "202694292929"
+        },
+        {
+          "file_name": "images/synthetic_01786_1_2026-659-429.png",
+          "expected": "2026-659-429",
+          "prediction": "2026942942929"
+        },
+        {
+          "file_name": "images/synthetic_01792_0_2026-660-800.png",
+          "expected": "2026-660-800",
+          "prediction": "2026660800"
+        },
+        {
+          "file_name": "images/synthetic_01792_1_2026-660-800.png",
+          "expected": "2026-660-800",
+          "prediction": "2026660800800"
+        },
+        {
+          "file_name": "images/synthetic_01800_0_2026-664-100.png",
+          "expected": "2026-664-100",
+          "prediction": "2026-64-100"
+        },
+        {
+          "file_name": "images/synthetic_01800_1_2026-664-100.png",
+          "expected": "2026-664-100",
+          "prediction": "202664110"
+        },
+        {
+          "file_name": "images/synthetic_01802_0_2026-665-034.png",
+          "expected": "2026-665-034",
+          "prediction": "20266-0--"
+        },
+        {
+          "file_name": "images/synthetic_01802_1_2026-665-034.png",
+          "expected": "2026-665-034",
+          "prediction": "20266-0-0-"
+        },
+        {
+          "file_name": "images/synthetic_01820_0_2026-670-391.png",
+          "expected": "2026-670-391",
+          "prediction": "20266-0-9-"
+        },
+        {
+          "file_name": "images/synthetic_01820_1_2026-670-391.png",
+          "expected": "2026-670-391",
+          "prediction": "20266-0---"
+        },
+        {
+          "file_name": "images/synthetic_01823_0_2026-672-449.png",
+          "expected": "2026-672-449",
+          "prediction": "2026244944949"
+        },
+        {
+          "file_name": "images/synthetic_01823_1_2026-672-449.png",
+          "expected": "2026-672-449",
+          "prediction": "20262449449"
+        },
+        {
+          "file_name": "images/synthetic_01825_0_2026-672-795.png",
+          "expected": "2026-672-795",
+          "prediction": "2026729595"
+        },
+        {
+          "file_name": "images/synthetic_01825_1_2026-672-795.png",
+          "expected": "2026-672-795",
+          "prediction": "202627995"
+        },
+        {
+          "file_name": "images/synthetic_01833_0_2026-676-606.png",
+          "expected": "2026-676-606",
+          "prediction": "2026676-0"
+        },
+        {
+          "file_name": "images/synthetic_01833_1_2026-676-606.png",
+          "expected": "2026-676-606",
+          "prediction": "202676666"
+        },
+        {
+          "file_name": "images/synthetic_01876_0_2026-696-063.png",
+          "expected": "2026-696-063",
+          "prediction": "2026696-0"
+        },
+        {
+          "file_name": "images/synthetic_01876_1_2026-696-063.png",
+          "expected": "2026-696-063",
+          "prediction": "2026696-0"
+        },
+        {
+          "file_name": "images/synthetic_01886_0_2026-699-529.png",
+          "expected": "2026-699-529",
+          "prediction": "202669292929"
+        },
+        {
+          "file_name": "images/synthetic_01886_1_2026-699-529.png",
+          "expected": "2026-699-529",
+          "prediction": "2026699-2"
+        },
+        {
+          "file_name": "images/synthetic_01889_0_2026-700-034.png",
+          "expected": "2026-700-034",
+          "prediction": "20267003434"
+        },
+        {
+          "file_name": "images/synthetic_01889_1_2026-700-034.png",
+          "expected": "2026-700-034",
+          "prediction": "2026700344"
+        },
+        {
+          "file_name": "images/synthetic_01892_0_2026-701-765.png",
+          "expected": "2026-701-765",
+          "prediction": "20267167565"
+        },
+        {
+          "file_name": "images/synthetic_01892_1_2026-701-765.png",
+          "expected": "2026-701-765",
+          "prediction": "20268016565"
+        },
+        {
+          "file_name": "images/synthetic_01903_0_2026-707-750.png",
+          "expected": "2026-707-750",
+          "prediction": "2026707750750"
+        },
+        {
+          "file_name": "images/synthetic_01903_1_2026-707-750.png",
+          "expected": "2026-707-750",
+          "prediction": "2026707750750"
+        },
+        {
+          "file_name": "images/synthetic_01933_0_2026-721-523.png",
+          "expected": "2026-721-523",
+          "prediction": "2026712323"
+        },
+        {
+          "file_name": "images/synthetic_01933_1_2026-721-523.png",
+          "expected": "2026-721-523",
+          "prediction": "2026712323"
+        },
+        {
+          "file_name": "images/synthetic_01934_0_2026-721-589.png",
+          "expected": "2026-721-589",
+          "prediction": "2026728989"
+        },
+        {
+          "file_name": "images/synthetic_01934_1_2026-721-589.png",
+          "expected": "2026-721-589",
+          "prediction": "2026718989"
+        },
+        {
+          "file_name": "images/synthetic_01948_0_2026-726-533.png",
+          "expected": "2026-726-533",
+          "prediction": "2026723333"
+        },
+        {
+          "file_name": "images/synthetic_01948_1_2026-726-533.png",
+          "expected": "2026-726-533",
+          "prediction": "2026723333"
+        },
+        {
+          "file_name": "images/synthetic_01987_0_2026-745-020.png",
+          "expected": "2026-745-020",
+          "prediction": "20265-0-0"
+        },
+        {
+          "file_name": "images/synthetic_01987_1_2026-745-020.png",
+          "expected": "2026-745-020",
+          "prediction": "20265-0-20202020"
+        },
+        {
+          "file_name": "images/synthetic_01989_0_2026-745-756.png",
+          "expected": "2026-745-756",
+          "prediction": "20265-7-75"
+        },
+        {
+          "file_name": "images/synthetic_01989_1_2026-745-756.png",
+          "expected": "2026-745-756",
+          "prediction": "20265-7-75"
+        },
+        {
+          "file_name": "images/synthetic_01991_0_2026-746-447.png",
+          "expected": "2026-746-447",
+          "prediction": "2026464747"
+        },
+        {
+          "file_name": "images/synthetic_01991_1_2026-746-447.png",
+          "expected": "2026-746-447",
+          "prediction": "2026464747"
+        },
+        {
+          "file_name": "images/synthetic_01996_0_2026-748-256.png",
+          "expected": "2026-748-256",
+          "prediction": "20267-8256256"
+        },
+        {
+          "file_name": "images/synthetic_01996_1_2026-748-256.png",
+          "expected": "2026-748-256",
+          "prediction": "20267-8--"
+        },
+        {
+          "file_name": "images/synthetic_01999_0_2026-748-880.png",
+          "expected": "2026-748-880",
+          "prediction": "20267-888880"
+        },
+        {
+          "file_name": "images/synthetic_01999_1_2026-748-880.png",
+          "expected": "2026-748-880",
+          "prediction": "20267888080"
+        },
+        {
+          "file_name": "images/synthetic_02008_0_2026-750-535.png",
+          "expected": "2026-750-535",
+          "prediction": "20267503535"
+        },
+        {
+          "file_name": "images/synthetic_02008_1_2026-750-535.png",
+          "expected": "2026-750-535",
+          "prediction": "20267503535"
+        },
+        {
+          "file_name": "images/synthetic_02013_0_2026-752-587.png",
+          "expected": "2026-752-587",
+          "prediction": "20262--5-5"
+        },
+        {
+          "file_name": "images/synthetic_02013_1_2026-752-587.png",
+          "expected": "2026-752-587",
+          "prediction": "202625-8"
+        },
+        {
+          "file_name": "images/synthetic_02014_0_2026-752-821.png",
+          "expected": "2026-752-821",
+          "prediction": "2026282211"
+        },
+        {
+          "file_name": "images/synthetic_02014_1_2026-752-821.png",
+          "expected": "2026-752-821",
+          "prediction": "20262--8-"
+        },
+        {
+          "file_name": "images/synthetic_02023_0_2026-758-530.png",
+          "expected": "2026-758-530",
+          "prediction": "20265-8-5-5"
+        },
+        {
+          "file_name": "images/synthetic_02023_1_2026-758-530.png",
+          "expected": "2026-758-530",
+          "prediction": "2026785030"
+        },
+        {
+          "file_name": "images/synthetic_02038_0_2026-763-973.png",
+          "expected": "2026-763-973",
+          "prediction": "2026397733"
+        },
+        {
+          "file_name": "images/synthetic_02038_1_2026-763-973.png",
+          "expected": "2026-763-973",
+          "prediction": "2026337373"
+        },
+        {
+          "file_name": "images/synthetic_02039_0_2026-764-481.png",
+          "expected": "2026-764-481",
+          "prediction": "2026648181"
+        },
+        {
+          "file_name": "images/synthetic_02039_1_2026-764-481.png",
+          "expected": "2026-764-481",
+          "prediction": "2026644111"
+        },
+        {
+          "file_name": "images/synthetic_02053_0_2026-768-586.png",
+          "expected": "2026-768-586",
+          "prediction": "2026768686"
+        },
+        {
+          "file_name": "images/synthetic_02053_1_2026-768-586.png",
+          "expected": "2026-768-586",
+          "prediction": "2026688686"
+        },
+        {
+          "file_name": "images/synthetic_02055_0_2026-769-923.png",
+          "expected": "2026-769-923",
+          "prediction": "20267-9-9"
+        },
+        {
+          "file_name": "images/synthetic_02055_1_2026-769-923.png",
+          "expected": "2026-769-923",
+          "prediction": "2026692323"
+        },
+        {
+          "file_name": "images/synthetic_02059_0_2026-772-648.png",
+          "expected": "2026-772-648",
+          "prediction": "202672888"
+        },
+        {
+          "file_name": "images/synthetic_02059_1_2026-772-648.png",
+          "expected": "2026-772-648",
+          "prediction": "2026726848"
+        },
+        {
+          "file_name": "images/synthetic_02067_0_2026-774-568.png",
+          "expected": "2026-774-568",
+          "prediction": "2026746868"
+        },
+        {
+          "file_name": "images/synthetic_02067_1_2026-774-568.png",
+          "expected": "2026-774-568",
+          "prediction": "2026746868"
+        },
+        {
+          "file_name": "images/synthetic_02069_0_2026-775-059.png",
+          "expected": "2026-775-059",
+          "prediction": "2026750599"
+        },
+        {
+          "file_name": "images/synthetic_02069_1_2026-775-059.png",
+          "expected": "2026-775-059",
+          "prediction": "2026750599"
+        },
+        {
+          "file_name": "images/synthetic_02076_0_2026-777-793.png",
+          "expected": "2026-777-793",
+          "prediction": "20267779393"
+        },
+        {
+          "file_name": "images/synthetic_02076_1_2026-777-793.png",
+          "expected": "2026-777-793",
+          "prediction": "20267779393"
+        },
+        {
+          "file_name": "images/synthetic_02078_0_2026-778-332.png",
+          "expected": "2026-778-332",
+          "prediction": "202678332332"
+        },
+        {
+          "file_name": "images/synthetic_02078_1_2026-778-332.png",
+          "expected": "2026-778-332",
+          "prediction": "202678332332"
+        },
+        {
+          "file_name": "images/synthetic_02080_0_2026-778-989.png",
+          "expected": "2026-778-989",
+          "prediction": "2026788989"
+        },
+        {
+          "file_name": "images/synthetic_02080_1_2026-778-989.png",
+          "expected": "2026-778-989",
+          "prediction": "2026789889"
+        },
+        {
+          "file_name": "images/synthetic_02097_0_2026-793-135.png",
+          "expected": "2026-793-135",
+          "prediction": "202693135135"
+        },
+        {
+          "file_name": "images/synthetic_02097_1_2026-793-135.png",
+          "expected": "2026-793-135",
+          "prediction": "202639135135"
+        },
+        {
+          "file_name": "images/synthetic_02100_0_2026-795-189.png",
+          "expected": "2026-795-189",
+          "prediction": "20269519989"
+        },
+        {
+          "file_name": "images/synthetic_02100_1_2026-795-189.png",
+          "expected": "2026-795-189",
+          "prediction": "2026798989"
+        },
+        {
+          "file_name": "images/synthetic_02107_0_2026-796-936.png",
+          "expected": "2026-796-936",
+          "prediction": "2026969636"
+        },
+        {
+          "file_name": "images/synthetic_02107_1_2026-796-936.png",
+          "expected": "2026-796-936",
+          "prediction": "2026769336"
+        },
+        {
+          "file_name": "images/synthetic_02114_0_2026-798-845.png",
+          "expected": "2026-798-845",
+          "prediction": "2026984545"
+        },
+        {
+          "file_name": "images/synthetic_02114_1_2026-798-845.png",
+          "expected": "2026-798-845",
+          "prediction": "2026984545"
+        },
+        {
+          "file_name": "images/synthetic_02118_0_2026-800-751.png",
+          "expected": "2026-800-751",
+          "prediction": "202680011"
+        },
+        {
+          "file_name": "images/synthetic_02118_1_2026-800-751.png",
+          "expected": "2026-800-751",
+          "prediction": "202680011"
+        },
+        {
+          "file_name": "images/synthetic_02122_0_2026-803-637.png",
+          "expected": "2026-803-637",
+          "prediction": "20268-0-63"
+        },
+        {
+          "file_name": "images/synthetic_02122_1_2026-803-637.png",
+          "expected": "2026-803-637",
+          "prediction": "202683637"
+        },
+        {
+          "file_name": "images/synthetic_02142_0_2026-815-163.png",
+          "expected": "2026-815-163",
+          "prediction": "202615163163"
+        },
+        {
+          "file_name": "images/synthetic_02142_1_2026-815-163.png",
+          "expected": "2026-815-163",
+          "prediction": "202615163163"
+        },
+        {
+          "file_name": "images/synthetic_02171_0_2026-828-063.png",
+          "expected": "2026-828-063",
+          "prediction": "2026286-0"
+        },
+        {
+          "file_name": "images/synthetic_02171_1_2026-828-063.png",
+          "expected": "2026-828-063",
+          "prediction": "20262868633"
+        },
+        {
+          "file_name": "images/synthetic_02174_0_2026-829-762.png",
+          "expected": "2026-829-762",
+          "prediction": "20263296262"
+        },
+        {
+          "file_name": "images/synthetic_02174_1_2026-829-762.png",
+          "expected": "2026-829-762",
+          "prediction": "20269-2-7-7"
+        },
+        {
+          "file_name": "images/synthetic_02213_0_2026-847-877.png",
+          "expected": "2026-847-877",
+          "prediction": "20268487777"
+        },
+        {
+          "file_name": "images/synthetic_02213_1_2026-847-877.png",
+          "expected": "2026-847-877",
+          "prediction": "2026848777"
+        },
+        {
+          "file_name": "images/synthetic_02216_0_2026-848-783.png",
+          "expected": "2026-848-783",
+          "prediction": "2026487883"
+        },
+        {
+          "file_name": "images/synthetic_02216_1_2026-848-783.png",
+          "expected": "2026-848-783",
+          "prediction": "2026887833"
+        },
+        {
+          "file_name": "images/synthetic_02224_0_2026-852-278.png",
+          "expected": "2026-852-278",
+          "prediction": "20268227878"
+        },
+        {
+          "file_name": "images/synthetic_02224_1_2026-852-278.png",
+          "expected": "2026-852-278",
+          "prediction": "202682278278"
+        },
+        {
+          "file_name": "images/synthetic_02236_0_2026-858-220.png",
+          "expected": "2026-858-220",
+          "prediction": "20268882020"
+        },
+        {
+          "file_name": "images/synthetic_02236_1_2026-858-220.png",
+          "expected": "2026-858-220",
+          "prediction": "202698220220"
+        },
+        {
+          "file_name": "images/synthetic_02241_0_2026-859-688.png",
+          "expected": "2026-859-688",
+          "prediction": "202689688888"
+        },
+        {
+          "file_name": "images/synthetic_02241_1_2026-859-688.png",
+          "expected": "2026-859-688",
+          "prediction": "202685688888"
+        },
+        {
+          "file_name": "images/synthetic_02245_0_2026-860-730.png",
+          "expected": "2026-860-730",
+          "prediction": "202660730"
+        },
+        {
+          "file_name": "images/synthetic_02245_1_2026-860-730.png",
+          "expected": "2026-860-730",
+          "prediction": "20266073030"
+        },
+        {
+          "file_name": "images/synthetic_02246_0_2026-860-895.png",
+          "expected": "2026-860-895",
+          "prediction": "2026869595"
+        },
+        {
+          "file_name": "images/synthetic_02246_1_2026-860-895.png",
+          "expected": "2026-860-895",
+          "prediction": "2026868595"
+        },
+        {
+          "file_name": "images/synthetic_02271_0_2026-873-302.png",
+          "expected": "2026-873-302",
+          "prediction": "2026873302"
+        },
+        {
+          "file_name": "images/synthetic_02271_1_2026-873-302.png",
+          "expected": "2026-873-302",
+          "prediction": "202673302302"
+        },
+        {
+          "file_name": "images/synthetic_02274_0_2026-874-194.png",
+          "expected": "2026-874-194",
+          "prediction": "2026374194194"
+        },
+        {
+          "file_name": "images/synthetic_02274_1_2026-874-194.png",
+          "expected": "2026-874-194",
+          "prediction": "2026374194194"
+        },
+        {
+          "file_name": "images/synthetic_02286_0_2026-878-550.png",
+          "expected": "2026-878-550",
+          "prediction": "20268785050"
+        },
+        {
+          "file_name": "images/synthetic_02286_1_2026-878-550.png",
+          "expected": "2026-878-550",
+          "prediction": "20267855050"
+        },
+        {
+          "file_name": "images/synthetic_02291_0_2026-879-791.png",
+          "expected": "2026-879-791",
+          "prediction": "2026797991"
+        },
+        {
+          "file_name": "images/synthetic_02291_1_2026-879-791.png",
+          "expected": "2026-879-791",
+          "prediction": "202679799191"
+        },
+        {
+          "file_name": "images/synthetic_02303_0_2026-886-145.png",
+          "expected": "2026-886-145",
+          "prediction": "202686145145"
+        },
+        {
+          "file_name": "images/synthetic_02303_1_2026-886-145.png",
+          "expected": "2026-886-145",
+          "prediction": "202686145145"
+        },
+        {
+          "file_name": "images/synthetic_02307_0_2026-888-809.png",
+          "expected": "2026-888-809",
+          "prediction": "202688899"
+        },
+        {
+          "file_name": "images/synthetic_02307_1_2026-888-809.png",
+          "expected": "2026-888-809",
+          "prediction": "202688899"
+        },
+        {
+          "file_name": "images/synthetic_02311_0_2026-889-771.png",
+          "expected": "2026-889-771",
+          "prediction": "2026897771"
+        },
+        {
+          "file_name": "images/synthetic_02311_1_2026-889-771.png",
+          "expected": "2026-889-771",
+          "prediction": "20268977711"
+        },
+        {
+          "file_name": "images/synthetic_02331_0_2026-896-098.png",
+          "expected": "2026-896-098",
+          "prediction": "2026896098"
+        },
+        {
+          "file_name": "images/synthetic_02331_1_2026-896-098.png",
+          "expected": "2026-896-098",
+          "prediction": "2026899898"
+        },
+        {
+          "file_name": "images/synthetic_02363_0_2026-910-607.png",
+          "expected": "2026-910-607",
+          "prediction": "202610-60"
+        },
+        {
+          "file_name": "images/synthetic_02363_1_2026-910-607.png",
+          "expected": "2026-910-607",
+          "prediction": "202610-60"
+        },
+        {
+          "file_name": "images/synthetic_02383_0_2026-919-444.png",
+          "expected": "2026-919-444",
+          "prediction": "2026919444"
+        },
+        {
+          "file_name": "images/synthetic_02383_1_2026-919-444.png",
+          "expected": "2026-919-444",
+          "prediction": "2026919444444"
+        },
+        {
+          "file_name": "images/synthetic_02389_0_2026-920-991.png",
+          "expected": "2026-920-991",
+          "prediction": "2026909991"
+        },
+        {
+          "file_name": "images/synthetic_02389_1_2026-920-991.png",
+          "expected": "2026-920-991",
+          "prediction": "20269-0-9-9"
+        },
+        {
+          "file_name": "images/synthetic_02394_0_2026-923-390.png",
+          "expected": "2026-923-390",
+          "prediction": "20269239090"
+        },
+        {
+          "file_name": "images/synthetic_02394_1_2026-923-390.png",
+          "expected": "2026-923-390",
+          "prediction": "20269-2--"
+        },
+        {
+          "file_name": "images/synthetic_02405_0_2026-926-789.png",
+          "expected": "2026-926-789",
+          "prediction": "2026928989"
+        },
+        {
+          "file_name": "images/synthetic_02405_1_2026-926-789.png",
+          "expected": "2026-926-789",
+          "prediction": "2026928989"
+        },
+        {
+          "file_name": "images/synthetic_02406_0_2026-926-892.png",
+          "expected": "2026-926-892",
+          "prediction": "20269-2-8-8"
+        },
+        {
+          "file_name": "images/synthetic_02406_1_2026-926-892.png",
+          "expected": "2026-926-892",
+          "prediction": "2026929292"
+        },
+        {
+          "file_name": "images/synthetic_02411_0_2026-928-487.png",
+          "expected": "2026-928-487",
+          "prediction": "2026928787"
+        },
+        {
+          "file_name": "images/synthetic_02411_1_2026-928-487.png",
+          "expected": "2026-928-487",
+          "prediction": "2026924887"
+        },
+        {
+          "file_name": "images/synthetic_02422_0_2026-930-894.png",
+          "expected": "2026-930-894",
+          "prediction": "2026930844"
+        },
+        {
+          "file_name": "images/synthetic_02422_1_2026-930-894.png",
+          "expected": "2026-930-894",
+          "prediction": "2026930944"
+        },
+        {
+          "file_name": "images/synthetic_02430_0_2026-935-038.png",
+          "expected": "2026-935-038",
+          "prediction": "20269-0-5-"
+        },
+        {
+          "file_name": "images/synthetic_02430_1_2026-935-038.png",
+          "expected": "2026-935-038",
+          "prediction": "20269-0---"
+        },
+        {
+          "file_name": "images/synthetic_02439_0_2026-938-122.png",
+          "expected": "2026-938-122",
+          "prediction": "202698122122"
+        },
+        {
+          "file_name": "images/synthetic_02439_1_2026-938-122.png",
+          "expected": "2026-938-122",
+          "prediction": "202698122122"
+        },
+        {
+          "file_name": "images/synthetic_02454_0_2026-943-861.png",
+          "expected": "2026-943-861",
+          "prediction": "2026936161"
+        },
+        {
+          "file_name": "images/synthetic_02454_1_2026-943-861.png",
+          "expected": "2026-943-861",
+          "prediction": "2026936161"
+        },
+        {
+          "file_name": "images/synthetic_02466_0_2026-951-256.png",
+          "expected": "2026-951-256",
+          "prediction": "20261256256"
+        },
+        {
+          "file_name": "images/synthetic_02466_1_2026-951-256.png",
+          "expected": "2026-951-256",
+          "prediction": "202691256256"
+        },
+        {
+          "file_name": "images/synthetic_02467_0_2026-951-383.png",
+          "expected": "2026-951-383",
+          "prediction": "20261383383"
+        },
+        {
+          "file_name": "images/synthetic_02467_1_2026-951-383.png",
+          "expected": "2026-951-383",
+          "prediction": "202651383383"
+        },
+        {
+          "file_name": "images/synthetic_02470_0_2026-951-506.png",
+          "expected": "2026-951-506",
+          "prediction": "20269550666"
+        },
+        {
+          "file_name": "images/synthetic_02470_1_2026-951-506.png",
+          "expected": "2026-951-506",
+          "prediction": "2026150666"
+        },
+        {
+          "file_name": "images/synthetic_02475_0_2026-953-548.png",
+          "expected": "2026-953-548",
+          "prediction": "2026934848"
+        },
+        {
+          "file_name": "images/synthetic_02475_1_2026-953-548.png",
+          "expected": "2026-953-548",
+          "prediction": "202693888"
+        },
+        {
+          "file_name": "images/synthetic_02480_0_2026-954-526.png",
+          "expected": "2026-954-526",
+          "prediction": "20269552526"
+        },
+        {
+          "file_name": "images/synthetic_02480_1_2026-954-526.png",
+          "expected": "2026-954-526",
+          "prediction": "2026952626"
+        },
+        {
+          "file_name": "images/synthetic_02489_0_2026-958-692.png",
+          "expected": "2026-958-692",
+          "prediction": "2026986922"
+        },
+        {
+          "file_name": "images/synthetic_02489_1_2026-958-692.png",
+          "expected": "2026-958-692",
+          "prediction": "20269529292"
+        },
+        {
+          "file_name": "images/synthetic_02510_0_2026-966-536.png",
+          "expected": "2026-966-536",
+          "prediction": "2026963636"
+        },
+        {
+          "file_name": "images/synthetic_02510_1_2026-966-536.png",
+          "expected": "2026-966-536",
+          "prediction": "2026963636"
+        },
+        {
+          "file_name": "images/synthetic_02527_0_2026-974-213.png",
+          "expected": "2026-974-213",
+          "prediction": "20269421313"
+        },
+        {
+          "file_name": "images/synthetic_02527_1_2026-974-213.png",
+          "expected": "2026-974-213",
+          "prediction": "20269421313"
+        },
+        {
+          "file_name": "images/synthetic_02538_0_2026-982-756.png",
+          "expected": "2026-982-756",
+          "prediction": "202698266"
+        },
+        {
+          "file_name": "images/synthetic_02538_1_2026-982-756.png",
+          "expected": "2026-982-756",
+          "prediction": "202698766"
+        },
+        {
+          "file_name": "images/synthetic_02551_0_2026-987-413.png",
+          "expected": "2026-987-413",
+          "prediction": "2026984333"
+        },
+        {
+          "file_name": "images/synthetic_02551_1_2026-987-413.png",
+          "expected": "2026-987-413",
+          "prediction": "20269814313"
+        },
+        {
+          "file_name": "images/synthetic_02559_0_2026-993-474.png",
+          "expected": "2026-993-474",
+          "prediction": "202693474"
+        },
+        {
+          "file_name": "images/synthetic_02559_1_2026-993-474.png",
+          "expected": "2026-993-474",
+          "prediction": "20269347474"
+        },
+        {
+          "file_name": "images/synthetic_02570_0_2026-999-946.png",
+          "expected": "2026-999-946",
+          "prediction": "20269994646"
+        },
+        {
+          "file_name": "images/synthetic_02570_1_2026-999-946.png",
+          "expected": "2026-999-946",
+          "prediction": "2026994646"
+        },
+        {
+          "file_name": "images/synthetic_02571_0_2027-002-455.png",
+          "expected": "2027-002-455",
+          "prediction": "20270024555"
+        },
+        {
+          "file_name": "images/synthetic_02571_1_2027-002-455.png",
+          "expected": "2027-002-455",
+          "prediction": "2027002455455"
+        },
+        {
+          "file_name": "images/synthetic_02576_0_2027-054-972.png",
+          "expected": "2027-054-972",
+          "prediction": "20270547272"
+        },
+        {
+          "file_name": "images/synthetic_02576_1_2027-054-972.png",
+          "expected": "2027-054-972",
+          "prediction": "2027547272"
+        },
+        {
+          "file_name": "images/synthetic_02579_0_2027-143-565.png",
+          "expected": "2027-143-565",
+          "prediction": "20271436565"
+        },
+        {
+          "file_name": "images/synthetic_02579_1_2027-143-565.png",
+          "expected": "2027-143-565",
+          "prediction": "20271436565"
+        },
+        {
+          "file_name": "images/synthetic_02599_0_2027-299-735.png",
+          "expected": "2027-299-735",
+          "prediction": "2027299735735"
+        },
+        {
+          "file_name": "images/synthetic_02599_1_2027-299-735.png",
+          "expected": "2027-299-735",
+          "prediction": "2027299735735"
+        },
+        {
+          "file_name": "images/synthetic_02602_0_2027-351-552.png",
+          "expected": "2027-351-552",
+          "prediction": "20271-55522"
+        },
+        {
+          "file_name": "images/synthetic_02602_1_2027-351-552.png",
+          "expected": "2027-351-552",
+          "prediction": "20273122"
+        },
+        {
+          "file_name": "images/synthetic_02604_0_2027-368-871.png",
+          "expected": "2027-368-871",
+          "prediction": "2027368771"
+        },
+        {
+          "file_name": "images/synthetic_02604_1_2027-368-871.png",
+          "expected": "2027-368-871",
+          "prediction": "20273-8-8-"
+        },
+        {
+          "file_name": "images/synthetic_02642_0_2027-690-336.png",
+          "expected": "2027-690-336",
+          "prediction": "2027690336336"
+        },
+        {
+          "file_name": "images/synthetic_02642_1_2027-690-336.png",
+          "expected": "2027-690-336",
+          "prediction": "2027690336336"
+        },
+        {
+          "file_name": "images/synthetic_02644_0_2027-695-281.png",
+          "expected": "2027-695-281",
+          "prediction": "20276528181"
+        },
+        {
+          "file_name": "images/synthetic_02644_1_2027-695-281.png",
+          "expected": "2027-695-281",
+          "prediction": "20276528181"
+        },
+        {
+          "file_name": "images/synthetic_02658_0_2027-787-849.png",
+          "expected": "2027-787-849",
+          "prediction": "202787894949"
+        },
+        {
+          "file_name": "images/synthetic_02658_1_2027-787-849.png",
+          "expected": "2027-787-849",
+          "prediction": "202787898989"
+        },
+        {
+          "file_name": "images/synthetic_02663_0_2027-810-886.png",
+          "expected": "2027-810-886",
+          "prediction": "20278108686"
+        },
+        {
+          "file_name": "images/synthetic_02663_1_2027-810-886.png",
+          "expected": "2027-810-886",
+          "prediction": "20278108686"
+        },
+        {
+          "file_name": "images/synthetic_02665_0_2027-839-841.png",
+          "expected": "2027-839-841",
+          "prediction": "2027898411"
+        },
+        {
+          "file_name": "images/synthetic_02665_1_2027-839-841.png",
+          "expected": "2027-839-841",
+          "prediction": "2027898411"
+        },
+        {
+          "file_name": "images/synthetic_02666_0_2027-873-138.png",
+          "expected": "2027-873-138",
+          "prediction": "2027373138138"
+        },
+        {
+          "file_name": "images/synthetic_02666_1_2027-873-138.png",
+          "expected": "2027-873-138",
+          "prediction": "202787318138"
+        },
+        {
+          "file_name": "images/synthetic_02698_0_2028-161-264.png",
+          "expected": "2028-161-264",
+          "prediction": "202816126464"
+        },
+        {
+          "file_name": "images/synthetic_02698_1_2028-161-264.png",
+          "expected": "2028-161-264",
+          "prediction": "202816126464"
+        },
+        {
+          "file_name": "images/synthetic_02702_0_2028-193-439.png",
+          "expected": "2028-193-439",
+          "prediction": "20281943939"
+        },
+        {
+          "file_name": "images/synthetic_02702_1_2028-193-439.png",
+          "expected": "2028-193-439",
+          "prediction": "20281434939"
+        },
+        {
+          "file_name": "images/synthetic_02704_0_2028-252-927.png",
+          "expected": "2028-252-927",
+          "prediction": "20282522727"
+        },
+        {
+          "file_name": "images/synthetic_02704_1_2028-252-927.png",
+          "expected": "2028-252-927",
+          "prediction": "20282522727"
+        },
+        {
+          "file_name": "images/synthetic_02725_0_2028-390-912.png",
+          "expected": "2028-390-912",
+          "prediction": "20283901212"
+        },
+        {
+          "file_name": "images/synthetic_02725_1_2028-390-912.png",
+          "expected": "2028-390-912",
+          "prediction": "20283901212"
+        },
+        {
+          "file_name": "images/synthetic_02755_0_2028-729-511.png",
+          "expected": "2028-729-511",
+          "prediction": "20282991111"
+        },
+        {
+          "file_name": "images/synthetic_02755_1_2028-729-511.png",
+          "expected": "2028-729-511",
+          "prediction": "2028725111"
+        },
+        {
+          "file_name": "images/synthetic_02769_0_2028-874-461.png",
+          "expected": "2028-874-461",
+          "prediction": "2028876461"
+        },
+        {
+          "file_name": "images/synthetic_02769_1_2028-874-461.png",
+          "expected": "2028-874-461",
+          "prediction": "202884161"
+        },
+        {
+          "file_name": "images/synthetic_02787_0_2029-027-341.png",
+          "expected": "2029-027-341",
+          "prediction": "209-0-0----"
+        },
+        {
+          "file_name": "images/synthetic_02787_1_2029-027-341.png",
+          "expected": "2029-027-341",
+          "prediction": "202927273411"
+        },
+        {
+          "file_name": "images/synthetic_02794_0_2029-077-943.png",
+          "expected": "2029-077-943",
+          "prediction": "20-90-7-94"
+        },
+        {
+          "file_name": "images/synthetic_02794_1_2029-077-943.png",
+          "expected": "2029-077-943",
+          "prediction": "209-0--7-94"
+        },
+        {
+          "file_name": "images/synthetic_02804_0_2029-166-884.png",
+          "expected": "2029-166-884",
+          "prediction": "2029166888484"
+        },
+        {
+          "file_name": "images/synthetic_02804_1_2029-166-884.png",
+          "expected": "2029-166-884",
+          "prediction": "20291668484"
+        },
+        {
+          "file_name": "images/synthetic_02809_0_2029-225-806.png",
+          "expected": "2029-225-806",
+          "prediction": "2029258-0"
+        },
+        {
+          "file_name": "images/synthetic_02809_1_2029-225-806.png",
+          "expected": "2029-225-806",
+          "prediction": "2029225806"
+        },
+        {
+          "file_name": "images/synthetic_02840_0_2029-497-702.png",
+          "expected": "2029-497-702",
+          "prediction": "2029499722"
+        },
+        {
+          "file_name": "images/synthetic_02840_1_2029-497-702.png",
+          "expected": "2029-497-702",
+          "prediction": "20-49-4-70"
+        },
+        {
+          "file_name": "images/synthetic_02849_0_2029-568-493.png",
+          "expected": "2029-568-493",
+          "prediction": "20-5-5-49-49"
+        },
+        {
+          "file_name": "images/synthetic_02849_1_2029-568-493.png",
+          "expected": "2029-568-493",
+          "prediction": "20-9-5--49-49"
+        },
+        {
+          "file_name": "images/synthetic_02867_0_2029-847-126.png",
+          "expected": "2029-847-126",
+          "prediction": "20294--7--"
+        },
+        {
+          "file_name": "images/synthetic_02867_1_2029-847-126.png",
+          "expected": "2029-847-126",
+          "prediction": "20-8-8----"
+        },
+        {
+          "file_name": "images/synthetic_02887_0_2029-969-603.png",
+          "expected": "2029-969-603",
+          "prediction": "202969694033"
+        },
+        {
+          "file_name": "images/synthetic_02887_1_2029-969-603.png",
+          "expected": "2029-969-603",
+          "prediction": "20-9-96-60"
+        },
+        {
+          "file_name": "images/synthetic_02889_0_2029-975-120.png",
+          "expected": "2029-975-120",
+          "prediction": "2029795-120"
+        },
+        {
+          "file_name": "images/synthetic_02889_1_2029-975-120.png",
+          "expected": "2029-975-120",
+          "prediction": "2029975-1"
+        },
+        {
+          "file_name": "images/synthetic_02894_0_2030-031-275.png",
+          "expected": "2030-031-275",
+          "prediction": "203001275275"
+        },
+        {
+          "file_name": "images/synthetic_02894_1_2030-031-275.png",
+          "expected": "2030-031-275",
+          "prediction": "203001275775"
+        },
+        {
+          "file_name": "images/synthetic_02905_0_2030-116-521.png",
+          "expected": "2030-116-521",
+          "prediction": "203011625121"
+        },
+        {
+          "file_name": "images/synthetic_02905_1_2030-116-521.png",
+          "expected": "2030-116-521",
+          "prediction": "2030116211"
+        },
+        {
+          "file_name": "images/synthetic_02912_0_2030-148-721.png",
+          "expected": "2030-148-721",
+          "prediction": "20301487221"
+        },
+        {
+          "file_name": "images/synthetic_02912_1_2030-148-721.png",
+          "expected": "2030-148-721",
+          "prediction": "20301487121"
+        },
+        {
+          "file_name": "images/synthetic_02930_0_2030-303-975.png",
+          "expected": "2030-303-975",
+          "prediction": "20303037575"
+        },
+        {
+          "file_name": "images/synthetic_02930_1_2030-303-975.png",
+          "expected": "2030-303-975",
+          "prediction": "20303037575"
+        },
+        {
+          "file_name": "images/synthetic_02935_0_2030-364-172.png",
+          "expected": "2030-364-172",
+          "prediction": "20303-4172172"
+        },
+        {
+          "file_name": "images/synthetic_02935_1_2030-364-172.png",
+          "expected": "2030-364-172",
+          "prediction": "203036172172"
+        },
+        {
+          "file_name": "images/synthetic_02937_0_2030-378-410.png",
+          "expected": "2030-378-410",
+          "prediction": "20303-8--"
+        },
+        {
+          "file_name": "images/synthetic_02937_1_2030-378-410.png",
+          "expected": "2030-378-410",
+          "prediction": "20303-8--"
+        },
+        {
+          "file_name": "images/synthetic_02958_0_2030-607-230.png",
+          "expected": "2030-607-230",
+          "prediction": "2030-60--"
+        },
+        {
+          "file_name": "images/synthetic_02958_1_2030-607-230.png",
+          "expected": "2030-607-230",
+          "prediction": "2030-60--"
+        },
+        {
+          "file_name": "images/synthetic_02963_0_2030-644-071.png",
+          "expected": "2030-644-071",
+          "prediction": "2030647171"
+        },
+        {
+          "file_name": "images/synthetic_02963_1_2030-644-071.png",
+          "expected": "2030-644-071",
+          "prediction": "2030647171"
+        },
+        {
+          "file_name": "images/synthetic_02977_0_2030-732-292.png",
+          "expected": "2030-732-292",
+          "prediction": "20307329292"
+        },
+        {
+          "file_name": "images/synthetic_02977_1_2030-732-292.png",
+          "expected": "2030-732-292",
+          "prediction": "2030732292"
+        },
+        {
+          "file_name": "images/synthetic_02992_0_2030-873-712.png",
+          "expected": "2030-873-712",
+          "prediction": "20308731212"
+        },
+        {
+          "file_name": "images/synthetic_02992_1_2030-873-712.png",
+          "expected": "2030-873-712",
+          "prediction": "20308731212"
+        },
+        {
+          "file_name": "images/synthetic_02994_0_2030-923-871.png",
+          "expected": "2030-923-871",
+          "prediction": "2030927111"
+        },
+        {
+          "file_name": "images/synthetic_02994_1_2030-923-871.png",
+          "expected": "2030-923-871",
+          "prediction": "2030921711"
+        }
+      ]
+    }
+  },
+  "checkpoint": "ai/runs/trocr_fiche_numbers/best"
+}

@@ -1,0 +1,744 @@
+{
+  "predictions": "ai/reports/ppocrv6_baseline_predictions.txt",
+  "metadata": "dataset/prepared/ppocrv6_recognition/numeric_test.csv",
+  "overall": {
+    "samples": 1053,
+    "characters": 9570,
+    "character_errors": 1110,
+    "cer": 0.11598746081504702,
+    "exact_matches": 554,
+    "exact_match_accuracy": 0.5261158594491928,
+    "mean_confidence": 0.9670455683613548
+  },
+  "by_source_kind": {
+    "annotated_numeric_crop": {
+      "samples": 415,
+      "characters": 1914,
+      "character_errors": 720,
+      "cer": 0.3761755485893417,
+      "exact_matches": 151,
+      "exact_match_accuracy": 0.363855421686747,
+      "mean_confidence": 0.9506610319556961
+    },
+    "real_pipeline_crop": {
+      "samples": 10,
+      "characters": 120,
+      "character_errors": 3,
+      "cer": 0.025,
+      "exact_matches": 8,
+      "exact_match_accuracy": 0.8,
+      "mean_confidence": 0.982750540971756
+    },
+    "synthetic_pipeline_crop": {
+      "samples": 628,
+      "characters": 7536,
+      "character_errors": 387,
+      "cer": 0.05135350318471338,
+      "exact_matches": 395,
+      "exact_match_accuracy": 0.6289808917197452,
+      "mean_confidence": 0.9776228500209796
+    }
+  },
+  "examples": [
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00009__age_years.png",
+      "target": "22",
+      "prediction": "2",
+      "confidence": 0.4131372570991516,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00009__gravidity.png",
+      "target": "7",
+      "prediction": "7",
+      "confidence": 0.8334022760391235,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00009__parity.png",
+      "target": "0",
+      "prediction": "Pari",
+      "confidence": 0.8151100873947144,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00009__living_children.png",
+      "target": "0",
+      "prediction": "Livin childre",
+      "confidence": 0.5843528509140015,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00009__abortions.png",
+      "target": "5",
+      "prediction": "5",
+      "confidence": 0.9751450419425964,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00010__age_years.png",
+      "target": "40",
+      "prediction": "40",
+      "confidence": 0.9985169172286987,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00010__gravidity.png",
+      "target": "1",
+      "prediction": "1",
+      "confidence": 0.7521582841873169,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00010__parity.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.5797514319419861,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00010__living_children.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.5586256384849548,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00010__abortions.png",
+      "target": "1",
+      "prediction": "1",
+      "confidence": 0.5466545224189758,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00013__age_years.png",
+      "target": "21",
+      "prediction": "27",
+      "confidence": 0.999731719493866,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00013__gravidity.png",
+      "target": "4",
+      "prediction": "4",
+      "confidence": 0.49672839045524597,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00013__parity.png",
+      "target": "1",
+      "prediction": "1",
+      "confidence": 0.6259194612503052,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00013__living_children.png",
+      "target": "1",
+      "prediction": "1",
+      "confidence": 0.8891298770904541,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00013__abortions.png",
+      "target": "3",
+      "prediction": "3",
+      "confidence": 0.9915186762809753,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00021__age_years.png",
+      "target": "26",
+      "prediction": "26",
+      "confidence": 0.997678279876709,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00021__gravidity.png",
+      "target": "4",
+      "prediction": "Gaihy",
+      "confidence": 0.4347987174987793,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00021__parity.png",
+      "target": "4",
+      "prediction": "4",
+      "confidence": 0.9922732710838318,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00021__living_children.png",
+      "target": "4",
+      "prediction": "4",
+      "confidence": 0.9926192164421082,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00021__abortions.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.849619448184967,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00030__age_years.png",
+      "target": "22",
+      "prediction": "22",
+      "confidence": 0.9998942613601685,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00030__gravidity.png",
+      "target": "1",
+      "prediction": "1",
+      "confidence": 0.7936640381813049,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00030__parity.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.8648003935813904,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00030__living_children.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.5487010478973389,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00030__abortions.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.8290407061576843,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00069__age_years.png",
+      "target": "17",
+      "prediction": "17",
+      "confidence": 0.9958390593528748,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00069__gravidity.png",
+      "target": "2",
+      "prediction": "2",
+      "confidence": 0.9925170540809631,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00069__parity.png",
+      "target": "2",
+      "prediction": "2",
+      "confidence": 0.9984148740768433,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00069__living_children.png",
+      "target": "2",
+      "prediction": "2",
+      "confidence": 0.9968536496162415,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00069__abortions.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.9954818487167358,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00088__age_years.png",
+      "target": "40",
+      "prediction": "40",
+      "confidence": 0.9993956089019775,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00088__gravidity.png",
+      "target": "3",
+      "prediction": "3",
+      "confidence": 0.9689327478408813,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00088__parity.png",
+      "target": "1",
+      "prediction": "1",
+      "confidence": 0.67416912317276,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00088__living_children.png",
+      "target": "1",
+      "prediction": "1",
+      "confidence": 0.8431717753410339,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00088__abortions.png",
+      "target": "1",
+      "prediction": "7",
+      "confidence": 0.6252331733703613,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00091__age_years.png",
+      "target": "35",
+      "prediction": "35",
+      "confidence": 0.9998263120651245,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00091__gravidity.png",
+      "target": "5",
+      "prediction": "5",
+      "confidence": 0.9760807752609253,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00091__parity.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.9972028732299805,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00091__living_children.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.9784332513809204,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00091__abortions.png",
+      "target": "5",
+      "prediction": "S",
+      "confidence": 0.5996301174163818,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00097__age_years.png",
+      "target": "29",
+      "prediction": "29",
+      "confidence": 0.9993926286697388,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00097__gravidity.png",
+      "target": "3",
+      "prediction": "3",
+      "confidence": 0.9907282590866089,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00097__parity.png",
+      "target": "3",
+      "prediction": "3",
+      "confidence": 0.998548686504364,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00097__living_children.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.6640459299087524,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00097__abortions.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.5627037882804871,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00005__last_menstrual_period.png",
+      "target": "07/09/2025",
+      "prediction": "07/09/2025",
+      "confidence": 0.9347646832466125,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00005__expected_delivery_date.png",
+      "target": "08/06/2026",
+      "prediction": "08/06/2026",
+      "confidence": 0.994353175163269,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00005__height_cm.png",
+      "target": "180",
+      "prediction": "180 cm",
+      "confidence": 0.984072744846344,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00005__gestational_age_weeks.png",
+      "target": "17",
+      "prediction": "17 wk",
+      "confidence": 0.9212850332260132,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00005__weight_kg.png",
+      "target": "66.9",
+      "prediction": "66.9 kg",
+      "confidence": 0.9993661046028137,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00005__blood_pressure.png",
+      "target": "128/70",
+      "prediction": "128/70",
+      "confidence": 0.9983744621276855,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00005__fundal_height_cm.png",
+      "target": "33",
+      "prediction": "33 cmm",
+      "confidence": 0.6323902606964111,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00005__fetal_heart_rate_bpm.png",
+      "target": "138",
+      "prediction": "138 bpm",
+      "confidence": 0.6591046452522278,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00005__hemoglobin_g_dl.png",
+      "target": "11.0",
+      "prediction": "11.0 g/dL",
+      "confidence": 0.9121058583259583,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00005__blood_glucose_g_l.png",
+      "target": "0.70",
+      "prediction": "0.70 g/L",
+      "confidence": 0.9919039011001587,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00015__last_menstrual_period.png",
+      "target": "10/02/2026",
+      "prediction": "10/02/2026",
+      "confidence": 0.9584964513778687,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00015__expected_delivery_date.png",
+      "target": "16/07/2026",
+      "prediction": "16107/2026",
+      "confidence": 0.9537531733512878,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00015__height_cm.png",
+      "target": "147",
+      "prediction": "147 cm",
+      "confidence": 0.9092097282409668,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00015__gestational_age_weeks.png",
+      "target": "30",
+      "prediction": "30 SA",
+      "confidence": 0.9730707406997681,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00015__weight_kg.png",
+      "target": "54.2",
+      "prediction": "54.2 kg",
+      "confidence": 0.9295984506607056,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00015__blood_pressure.png",
+      "target": "102/85",
+      "prediction": "102185",
+      "confidence": 0.9361055493354797,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00015__fundal_height_cm.png",
+      "target": "35",
+      "prediction": "35 cm",
+      "confidence": 0.89349365234375,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00015__fetal_heart_rate_bpm.png",
+      "target": "143",
+      "prediction": "143 bpm",
+      "confidence": 0.946178138256073,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00015__hemoglobin_g_dl.png",
+      "target": "9.5",
+      "prediction": "9.5 g/dl",
+      "confidence": 0.7918673753738403,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00015__blood_glucose_g_l.png",
+      "target": "1.10",
+      "prediction": "1.10 g/l",
+      "confidence": 0.9407796859741211,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00050__last_menstrual_period.png",
+      "target": "21/09/2025",
+      "prediction": "21/09/2025",
+      "confidence": 0.9997458457946777,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00050__expected_delivery_date.png",
+      "target": "24/02/2026",
+      "prediction": "24/02/2026",
+      "confidence": 0.999794602394104,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00050__height_cm.png",
+      "target": "166",
+      "prediction": "166cm",
+      "confidence": 0.9999308586120605,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00050__gestational_age_weeks.png",
+      "target": "10",
+      "prediction": "10 wk",
+      "confidence": 0.9208064079284668,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00050__weight_kg.png",
+      "target": "71.1",
+      "prediction": "71.1 kg",
+      "confidence": 0.9945992231369019,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00050__blood_pressure.png",
+      "target": "92/57",
+      "prediction": "92/57",
+      "confidence": 0.9488919973373413,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00050__fundal_height_cm.png",
+      "target": "37",
+      "prediction": "37 cm",
+      "confidence": 0.9551908373832703,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00050__fetal_heart_rate_bpm.png",
+      "target": "140",
+      "prediction": "140 bpm",
+      "confidence": 0.991398811340332,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00050__hemoglobin_g_dl.png",
+      "target": "12.8",
+      "prediction": "12.8 g/dL",
+      "confidence": 0.9752224683761597,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00050__blood_glucose_g_l.png",
+      "target": "1.20",
+      "prediction": "1.20 g/L",
+      "confidence": 0.9591922163963318,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00053__last_menstrual_period.png",
+      "target": "24/03/2026",
+      "prediction": "24/03/2026",
+      "confidence": 0.9962402582168579,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00053__expected_delivery_date.png",
+      "target": "04/02/2026",
+      "prediction": "04/02/2026",
+      "confidence": 0.99498450756073,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00053__height_cm.png",
+      "target": "162",
+      "prediction": "162cm",
+      "confidence": 0.9999424815177917,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00053__gestational_age_weeks.png",
+      "target": "35",
+      "prediction": "35wk",
+      "confidence": 0.999470591545105,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00053__weight_kg.png",
+      "target": "88.7",
+      "prediction": "88.7 kg",
+      "confidence": 0.997502326965332,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00053__blood_pressure.png",
+      "target": "125/57",
+      "prediction": "125157",
+      "confidence": 0.9851093888282776,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00053__fundal_height_cm.png",
+      "target": "27",
+      "prediction": "27 cm",
+      "confidence": 0.9865660667419434,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00053__fetal_heart_rate_bpm.png",
+      "target": "156",
+      "prediction": "156 bpm",
+      "confidence": 0.9996162056922913,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00053__hemoglobin_g_dl.png",
+      "target": "11.9",
+      "prediction": "11.9 gldL",
+      "confidence": 0.9341477155685425,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00053__blood_glucose_g_l.png",
+      "target": "0.70",
+      "prediction": "0.70 g/L",
+      "confidence": 0.9719060659408569,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00054__last_menstrual_period.png",
+      "target": "19/09/2025",
+      "prediction": "19109/2025",
+      "confidence": 0.9499683380126953,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00054__expected_delivery_date.png",
+      "target": "29/08/2026",
+      "prediction": "29/08/2026",
+      "confidence": 0.993310809135437,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00054__height_cm.png",
+      "target": "179",
+      "prediction": "179cm",
+      "confidence": 0.9993135333061218,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00054__gestational_age_weeks.png",
+      "target": "12",
+      "prediction": "12SA",
+      "confidence": 0.9513712525367737,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00054__weight_kg.png",
+      "target": "62.4",
+      "prediction": "62.4 kg",
+      "confidence": 0.9878220558166504,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00054__blood_pressure.png",
+      "target": "129/70",
+      "prediction": "129170",
+      "confidence": 0.9214684963226318,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00054__fundal_height_cm.png",
+      "target": "22",
+      "prediction": "22cm",
+      "confidence": 0.9849913120269775,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00054__fetal_heart_rate_bpm.png",
+      "target": "158",
+      "prediction": "158 bpm",
+      "confidence": 0.9979044198989868,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00054__hemoglobin_g_dl.png",
+      "target": "10.3",
+      "prediction": "10.3 g/dL",
+      "confidence": 0.9385382533073425,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_fr_00054__blood_glucose_g_l.png",
+      "target": "0.96",
+      "prediction": "0.96 g/L",
+      "confidence": 0.9043625593185425,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00056__last_menstrual_period.png",
+      "target": "08/11/2025",
+      "prediction": "08/11/2025",
+      "confidence": 0.9343379735946655,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00056__expected_delivery_date.png",
+      "target": "08/09/2026",
+      "prediction": "08/09/2026",
+      "confidence": 0.9991888999938965,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00056__height_cm.png",
+      "target": "156",
+      "prediction": "156cm",
+      "confidence": 0.998634934425354,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00056__gestational_age_weeks.png",
+      "target": "38",
+      "prediction": "38 wk",
+      "confidence": 0.9654668569564819,
+      "source_kind": "annotated_numeric_crop"
+    },
+    {
+      "file_name": "images/test/forms/03_current_pregnancy__03_current_pregnancy_en_00056__weight_kg.png",
+      "target": "63.1",
+      "prediction": "63.7 kg",
+      "confidence": 0.9904500246047974,
+      "source_kind": "annotated_numeric_crop"
+    }
+  ]
+}

@@ -12,8 +12,9 @@ from transformers import TrOCRProcessor
 
 
 ROOT = Path(__file__).resolve().parents[2]
+CONFIG = json.loads((ROOT / "ai/config/trocr_numbers.json").read_text())
 TEXT_MODEL = "microsoft/trocr-small-handwritten"
-NUMBER_MODEL = ROOT / "ai/runs/trocr_numbers_numeric/best"
+NUMBER_MODEL = ROOT / CONFIG.get("output_directory", "ai/runs/trocr_numbers") / "best"
 EXPORT_ROOT = ROOT / "ai/runs/onnx"
 ASSET_ROOT = ROOT / "app/src/main/assets/models"
 

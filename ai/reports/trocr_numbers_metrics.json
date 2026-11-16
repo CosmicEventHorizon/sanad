@@ -1,28 +1,40 @@
 {
   "base_model": "microsoft/trocr-small-handwritten",
-  "initial_model": "ai/runs/trocr_numbers_final/best",
+  "initial_model": "microsoft/trocr-small-handwritten",
+  "preprocessing": "Original detected/annotated line crop; TrOCRProcessor direct resize to 384x384, matching Android inference",
   "encoder_frozen": false,
-  "train_samples": 5874,
-  "validation_samples": 747,
-  "test_samples": 686,
+  "train_samples": 1902,
+  "validation_samples": 163,
+  "test_samples": 200,
   "target_normalization": {
     "formats": [
-      "mass",
-      "integer",
-      "length",
-      "temperature",
-      "decimal",
+      "abortions",
+      "adult_weight",
       "age",
-      "pressure"
+      "baby_length",
+      "birth_gestation",
+      "birth_weight",
+      "bp",
+      "early_age",
+      "fhr",
+      "fundal",
+      "gestation",
+      "glucose",
+      "head",
+      "height",
+      "hemoglobin",
+      "late_age",
+      "living",
+      "newborn_weight",
+      "parity",
+      "pulse",
+      "small_int",
+      "temperature"
     ],
     "characters": "0123456789.,/:+-%=",
     "description": "Units are visible context but targets contain only numeric content and meaningful separators."
   },
   "characters": [
-    "%",
-    "+",
-    ",",
-    "-",
     ".",
     "/",
     "0",
@@ -37,108 +49,20 @@
     "9"
   ],
   "train": {
-    "train_runtime": 413.9181,
-    "train_samples_per_second": 42.574,
-    "train_steps_per_second": 2.667,
-    "total_flos": 2.1080262417045258e+18,
-    "train_loss": 0.29622152992996614,
-    "epoch": 3.0
+    "train_runtime": 230.1172,
+    "train_samples_per_second": 41.327,
+    "train_steps_per_second": 2.586,
+    "total_flos": 1.1376307773584179e+18,
+    "train_loss": 1.4203760740135898,
+    "epoch": 5.0
   },
   "test": {
-    "test_loss": 0.7601321935653687,
-    "test_cer": 0.35036255767963087,
-    "test_exact_match": 0.2565597667638484,
-    "test_runtime": 17.2176,
-    "test_samples_per_second": 39.843,
-    "test_steps_per_second": 4.995
+    "test_loss": 0.9751785397529602,
+    "test_cer": 0.40860215053763443,
+    "test_exact_match": 0.465,
+    "test_runtime": 5.3181,
+    "test_samples_per_second": 37.607,
+    "test_steps_per_second": 9.402
   },
-  "checkpoint": "ai/runs/trocr_numbers_numeric/best",
-  "test_pipeline": {
-    "samples": 686,
-    "cer": 0.35036255767963087,
-    "exact_match": 0.2565597667638484,
-    "post_processing": "Keep digits and configured numeric separators; remove visible unit text.",
-    "examples": [
-      {
-        "reference": "87,079",
-        "prediction": "870"
-      },
-      {
-        "reference": "800.72",
-        "prediction": "80072"
-      },
-      {
-        "reference": "22,0",
-        "prediction": "2"
-      },
-      {
-        "reference": "80",
-        "prediction": "80"
-      },
-      {
-        "reference": "44.4",
-        "prediction": "44.4"
-      },
-      {
-        "reference": "+42,945",
-        "prediction": "+429"
-      },
-      {
-        "reference": "195",
-        "prediction": "195"
-      },
-      {
-        "reference": "27.7",
-        "prediction": "27.3"
-      },
-      {
-        "reference": "137/57",
-        "prediction": "13757"
-      },
-      {
-        "reference": "65.725",
-        "prediction": "6.25"
-      },
-      {
-        "reference": "100,9",
-        "prediction": "1009"
-      },
-      {
-        "reference": "4655",
-        "prediction": "46"
-      },
-      {
-        "reference": "143",
-        "prediction": "143"
-      },
-      {
-        "reference": "143",
-        "prediction": "143"
-      },
-      {
-        "reference": "143",
-        "prediction": "143"
-      },
-      {
-        "reference": "87374",
-        "prediction": "874"
-      },
-      {
-        "reference": "127",
-        "prediction": "12"
-      },
-      {
-        "reference": "127",
-        "prediction": "127"
-      },
-      {
-        "reference": "44.7",
-        "prediction": "4"
-      },
-      {
-        "reference": "44.7",
-        "prediction": "44.7"
-      }
-    ]
-  }
+  "checkpoint": "ai/runs/trocr_numbers_square_crops/best"
 }

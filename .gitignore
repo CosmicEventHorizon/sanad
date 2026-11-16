@@ -10,6 +10,8 @@
 /.externalNativeBuild/
 /.cxx/
 /.venv-ai/
+/.venv-paddle/
+/.tools/
 /ai/runs/
 /runs/
 /dataset/
@@ -21,6 +23,7 @@
 *.pt
 *.pth
 *.safetensors
+*.pdparams
 *.tflite
 *.apk
 *.aab

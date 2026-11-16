@@ -8,6 +8,7 @@ import android.graphics.Color
 import android.graphics.Matrix
 import android.graphics.Paint
 import android.net.Uri
+import androidx.exifinterface.media.ExifInterface
 import com.sanad.app.domain.model.RecognizedField
 import com.sanad.app.domain.service.IFormProcessingService
 import ai.onnxruntime.OnnxTensor
@@ -23,17 +24,17 @@ import kotlin.math.min
 import kotlin.math.sin
 
 /**
- * Offline first stage of the configured pipeline. YOLO OBB locates each
- * printed label, its local coordinate system is used to rectify the related
- * value area, and checkbox-like fields are classified by ink density. The
- * rectified handwriting crops are recognized by the configured TrOCR model;
- * failed inference remains empty and low-confidence for human review.
+ * Offline form pipeline. A form-specific YOLO OBB locates printed labels and a shared YOLO OBB
+ * independently locates handwriting. Label-relative regions are used only to assign handwriting
+ * detections to fields; TrOCR receives a padded crop of the detected handwriting polygon itself.
+ * Checkbox-like fields remain label-relative and are classified by ink density.
  */
 class OnDeviceFormProcessingService(
     private val context: Context,
 ) : IFormProcessingService, AutoCloseable {
     private val environment by lazy { OrtEnvironment.getEnvironment() }
     private val sessions = mutableMapOf<String, OrtSession>()
+    private val sessionLoader = AssetOnnxSessionLoader(context, environment)
     private val handwritingRecognizerDelegate = lazy { OnDeviceTrOcrRecognizer(context, environment) }
     private val handwritingRecognizer by handwritingRecognizerDelegate
 
@@ -41,23 +42,33 @@ class OnDeviceFormProcessingService(
         withContext(Dispatchers.Default) {
             val configuration = loadConfiguration(formType)
             val source = openBitmap(imageUri)
-            val detected = runAnchorModel(source, configuration)
-            val corrected = correctPerspective(source, detected, configuration.anchors)
-            val bitmap = corrected.bitmap
-            val detections = corrected.detections
+            val anchors = runObbModel(source, configuration.anchorDetector, configuration.anchors.size)
+                .groupBy(OrientedBox::classId)
+                .mapValues { (_, detections) -> detections.maxBy(OrientedBox::confidence) }
+            require(anchors.isNotEmpty()) {
+                "No pregnancy-monitoring form labels were detected. Fill the frame with the complete form and try again."
+            }
+            val handwriting = runObbModel(source, configuration.handwritingDetector, expectedClassCount = 1)
+            val textFields = configuration.anchors.mapNotNull { anchor ->
+                val detectedAnchor = anchors[anchor.classId]
+                if (detectedAnchor != null && anchor.type in TEXT_FIELD_TYPES) {
+                    AnchoredFieldRegion(anchor.fieldId, detectedAnchor, anchor.crop)
+                } else null
+            }
+            val handwritingMatches = HandwritingFieldMatcher.match(textFields, handwriting)
             configuration.anchors.map { anchor ->
-                val detection = detections[anchor.classId]
+                val detection = anchors[anchor.classId]
                 when {
                     detection == null -> RecognizedField(anchor.fieldId, "", 0f)
                     anchor.type == "boolean" -> {
-                        val crop = rectify(bitmap, detection, anchor.crop)
+                        val crop = rectify(source, detection, anchor.crop)
                         val ratio = inkRatio(crop, trimBorder = true)
                         val checked = ratio >= configuration.minimumInkRatio
                         RecognizedField(anchor.fieldId, checked.toString(), checkboxConfidence(ratio, configuration.minimumInkRatio))
                     }
                     anchor.type in setOf("single_choice", "multiple_choice") -> {
                         val scores = anchor.options.associateWith { option ->
-                            inkRatio(rectify(bitmap, detection, option.crop), option.trimBorder)
+                            inkRatio(rectify(source, detection, option.crop), option.trimBorder)
                         }
                         val selected = if (anchor.type == "single_choice") {
                             scores.filter { (option, score) -> score >= (option.threshold ?: configuration.minimumInkRatio) }
@@ -72,8 +83,10 @@ class OnDeviceFormProcessingService(
                         } ?: 0f
                         RecognizedField(anchor.fieldId, selected.joinToString(",") { it.id }, detection.confidence * confidence)
                     }
-                    anchor.type in setOf("text", "number", "numeric") -> {
-                        val crop = rectify(bitmap, detection, anchor.crop)
+                    anchor.type in TEXT_FIELD_TYPES -> {
+                        val handwritingDetection = handwritingMatches[anchor.fieldId]
+                            ?: return@map RecognizedField(anchor.fieldId, "", 0f)
+                        val crop = rectifyDetection(source, handwritingDetection, configuration.handwritingCropPadding)
                         val directory = if (anchor.type in setOf("number", "numeric")) {
                             configuration.numericModelDirectory
                         } else configuration.textModelDirectory
@@ -83,9 +96,10 @@ class OnDeviceFormProcessingService(
                                     val text = if (anchor.type in setOf("number", "numeric")) {
                                         NUMERIC_PATTERN.find(it.text.replace(" ", ""))?.value.orEmpty()
                                     } else it.text
-                                    RecognizedField(anchor.fieldId, text, detection.confidence * it.confidence)
+                                    val localizationConfidence = min(detection.confidence, handwritingDetection.confidence)
+                                    RecognizedField(anchor.fieldId, text, localizationConfidence * it.confidence)
                                 },
-                                onFailure = { RecognizedField(anchor.fieldId, "", detection.confidence * 0.25f) },
+                                onFailure = { RecognizedField(anchor.fieldId, "", 0f) },
                             )
                     }
                     else -> RecognizedField(anchor.fieldId, "", detection.confidence * 0.25f)
@@ -98,26 +112,25 @@ class OnDeviceFormProcessingService(
         val spec = context.assets.readJson("forms/$formType/spec.json")
         val pipeline = spec.getJSONObject("pipeline")
         val detector = pipeline.getJSONObject("anchor_detection")
+        val handwritingDetector = pipeline.getJSONObject("handwriting_detection")
         val checkbox = pipeline.getJSONObject("checkbox_recognition")
         val anchors = context.assets.readJson(spec.getString("anchors"))
             .getJSONArray("classes")
         return Configuration(
-            modelPath = detector.getString("model"),
-            inputSize = detector.getJSONObject("input").getInt("width"),
-            confidenceThreshold = detector.getDouble("confidence_threshold").toFloat(),
+            anchorDetector = detector.toDetectorConfiguration(),
+            handwritingDetector = handwritingDetector.toDetectorConfiguration(),
+            handwritingCropPadding = handwritingDetector.optDouble("crop_padding", 0.15).toFloat(),
             minimumInkRatio = checkbox.getDouble("minimum_ink_ratio").toFloat(),
             textModelDirectory = pipeline.getJSONObject("handwriting_recognition").getString("model_directory"),
             numericModelDirectory = pipeline.getJSONObject("numeric_recognition").getString("model_directory"),
             anchors = (0 until anchors.length()).map { index ->
                 val item = anchors.getJSONObject(index)
                 val crop = item.getJSONArray("relative_crop")
-                val canonical = item.getJSONArray("canonical_anchor")
                 Anchor(
                     classId = item.getInt("class_id"),
                     fieldId = item.getString("field_id"),
                     type = item.getString("field_type"),
                     crop = FloatArray(4) { crop.getDouble(it).toFloat() },
-                    canonical = FloatArray(4) { canonical.getDouble(it).toFloat() },
                     options = item.optJSONArray("options")?.let { options ->
                         (0 until options.length()).map { optionIndex ->
                             val option = options.getJSONObject(optionIndex)
@@ -135,29 +148,36 @@ class OnDeviceFormProcessingService(
         )
     }
 
-    private fun runAnchorModel(bitmap: Bitmap, config: Configuration): Map<Int, Detection> {
-        val prepared = letterbox(bitmap, config.inputSize)
-        val data = FloatArray(3 * config.inputSize * config.inputSize)
+    private fun JSONObject.toDetectorConfiguration() = DetectorConfiguration(
+        modelPath = getString("model"),
+        inputSize = getJSONObject("input").getInt("width"),
+        confidenceThreshold = getDouble("confidence_threshold").toFloat(),
+        iouThreshold = optDouble("iou_threshold", 0.45).toFloat(),
+        maximumDetections = optInt("maximum_detections", 150),
+    )
+
+    private fun runObbModel(bitmap: Bitmap, detector: DetectorConfiguration, expectedClassCount: Int): List<OrientedBox> {
+        val prepared = letterbox(bitmap, detector.inputSize)
+        val data = FloatArray(3 * detector.inputSize * detector.inputSize)
         var redOffset = 0
-        var greenOffset = config.inputSize * config.inputSize
+        var greenOffset = detector.inputSize * detector.inputSize
         var blueOffset = greenOffset * 2
-        val pixels = IntArray(config.inputSize * config.inputSize)
-        prepared.bitmap.getPixels(pixels, 0, config.inputSize, 0, 0, config.inputSize, config.inputSize)
+        val pixels = IntArray(detector.inputSize * detector.inputSize)
+        prepared.bitmap.getPixels(pixels, 0, detector.inputSize, 0, 0, detector.inputSize, detector.inputSize)
         pixels.forEach { pixel ->
             data[redOffset++] = Color.red(pixel) / 255f
             data[greenOffset++] = Color.green(pixel) / 255f
             data[blueOffset++] = Color.blue(pixel) / 255f
         }
 
-        val session = sessions.getOrPut(config.modelPath) {
-            val bytes = context.assets.open(config.modelPath).use { it.readBytes() }
-            environment.createSession(bytes, OrtSession.SessionOptions())
+        val session = sessions.getOrPut(detector.modelPath) {
+            sessionLoader.load(detector.modelPath)
         }
         val inputName = session.inputNames.first()
         OnnxTensor.createTensor(
             environment,
             FloatBuffer.wrap(data),
-            longArrayOf(1, 3, config.inputSize.toLong(), config.inputSize.toLong()),
+            longArrayOf(1, 3, detector.inputSize.toLong(), detector.inputSize.toLong()),
         ).use { input ->
             session.run(mapOf(inputName to input)).use { result ->
                 val tensor = result[0] as OnnxTensor
@@ -166,11 +186,11 @@ class OnDeviceFormProcessingService(
                 val channels = shape[1].toInt()
                 val candidates = shape[2].toInt()
                 val classCount = channels - 5
-                require(classCount == config.anchors.size) { "YOLO class count does not match anchors.json" }
+                require(classCount == expectedClassCount) { "YOLO class count does not match its configuration" }
                 val values = tensor.floatBuffer.let { buffer: FloatBuffer ->
                     FloatArray(buffer.remaining()).also(buffer::get)
                 }
-                val best = mutableMapOf<Int, Detection>()
+                val detections = mutableListOf<OrientedBox>()
                 for (candidate in 0 until candidates) {
                     var classId = 0
                     var confidence = values[4 * candidates + candidate]
@@ -181,24 +201,25 @@ class OnDeviceFormProcessingService(
                             classId = index
                         }
                     }
-                    if (confidence < config.confidenceThreshold) continue
+                    if (confidence < detector.confidenceThreshold) continue
                     val angle = values[(channels - 1) * candidates + candidate]
-                    val detection = Detection(
+                    val detection = OrientedBox(
                         centerX = (values[candidate] - prepared.left) / prepared.scale,
                         centerY = (values[candidates + candidate] - prepared.top) / prepared.scale,
                         width = values[2 * candidates + candidate] / prepared.scale,
                         height = values[3 * candidates + candidate] / prepared.scale,
                         angle = angle,
                         confidence = confidence,
+                        classId = classId,
                     )
-                    if (confidence > (best[classId]?.confidence ?: -1f)) best[classId] = detection
+                    if (detection.width >= 2f && detection.height >= 2f) detections += detection
                 }
-                return best
+                return nonMaximumSuppression(detections, detector.iouThreshold, detector.maximumDetections)
             }
         }
     }
 
-    private fun rectify(source: Bitmap, anchor: Detection, relative: FloatArray): Bitmap {
+    private fun rectify(source: Bitmap, anchor: OrientedBox, relative: FloatArray): Bitmap {
         val corners = localCorners(anchor, relative)
         val width = max(32, distance(corners, 0, 1).toInt())
         val height = max(24, distance(corners, 1, 2).toInt())
@@ -209,39 +230,17 @@ class OnDeviceFormProcessingService(
         }
     }
 
-    private fun correctPerspective(source: Bitmap, detections: Map<Int, Detection>, anchors: List<Anchor>): CorrectedForm {
-        val referenceIds = listOf(0, 2, 7, 9)
-        if (referenceIds.any { it !in detections }) return CorrectedForm(source, detections)
-        val sourcePoints = referenceIds.flatMap { id ->
-            detections.getValue(id).let { listOf(it.centerX, it.centerY) }
-        }.toFloatArray()
-        val byId = anchors.associateBy(Anchor::classId)
-        val destinationPoints = referenceIds.flatMap { id ->
-            val box = byId.getValue(id).canonical
-            listOf((box[0] + box[2]) * 0.5f * source.width, (box[1] + box[3]) * 0.5f * source.height)
-        }.toFloatArray()
-        val matrix = Matrix()
-        if (!matrix.setPolyToPoly(sourcePoints, 0, destinationPoints, 0, 4)) return CorrectedForm(source, detections)
-        val bitmap = Bitmap.createBitmap(source.width, source.height, Bitmap.Config.ARGB_8888)
-        Canvas(bitmap).apply {
-            drawColor(Color.WHITE)
-            drawBitmap(source, matrix, Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG))
-        }
-        val canonicalDetections = anchors.associate { anchor ->
-            val box = anchor.canonical
-            anchor.classId to Detection(
-                centerX = (box[0] + box[2]) * 0.5f * source.width,
-                centerY = (box[1] + box[3]) * 0.5f * source.height,
-                width = (box[2] - box[0]) * source.width,
-                height = (box[3] - box[1]) * source.height,
-                angle = 0f,
-                confidence = detections[anchor.classId]?.confidence ?: 0f,
-            )
-        }.filterValues { it.confidence > 0f }
-        return CorrectedForm(bitmap, canonicalDetections)
+    private fun rectifyDetection(source: Bitmap, detection: OrientedBox, padding: Float): Bitmap {
+        val horizontalPadding = max(4f, detection.height * padding)
+        val verticalPadding = max(3f, detection.height * padding)
+        val padded = detection.copy(
+            width = detection.width + horizontalPadding * 2f,
+            height = detection.height + verticalPadding * 2f,
+        )
+        return rectify(source, padded, floatArrayOf(0f, 0f, 1f, 1f))
     }
 
-    private fun localCorners(anchor: Detection, crop: FloatArray): FloatArray {
+    private fun localCorners(anchor: OrientedBox, crop: FloatArray): FloatArray {
         val ux = cos(anchor.angle)
         val uy = sin(anchor.angle)
         val vx = -uy
@@ -251,6 +250,36 @@ class OnDeviceFormProcessingService(
                 (anchor.centerY + (x - 0.5f) * anchor.width * uy + (y - 0.5f) * anchor.height * vy)
         val points = listOf(point(crop[0], crop[1]), point(crop[2], crop[1]), point(crop[2], crop[3]), point(crop[0], crop[3]))
         return points.flatMap { listOf(it.first, it.second) }.toFloatArray()
+    }
+
+    private fun nonMaximumSuppression(
+        candidates: List<OrientedBox>,
+        threshold: Float,
+        maximumDetections: Int,
+    ): List<OrientedBox> {
+        val sorted = candidates.sortedByDescending(OrientedBox::confidence)
+        val kept = mutableListOf<OrientedBox>()
+        for (candidate in sorted) {
+            if (kept.size >= maximumDetections) break
+            if (kept.none { it.classId == candidate.classId && axisAlignedIou(it, candidate) > threshold }) kept += candidate
+        }
+        return kept
+    }
+
+    /** Conservative NMS approximation; final crops still preserve the OBB angle. */
+    private fun axisAlignedIou(first: OrientedBox, second: OrientedBox): Float {
+        val firstLeft = first.centerX - first.width * 0.5f
+        val firstTop = first.centerY - first.height * 0.5f
+        val firstRight = first.centerX + first.width * 0.5f
+        val firstBottom = first.centerY + first.height * 0.5f
+        val secondLeft = second.centerX - second.width * 0.5f
+        val secondTop = second.centerY - second.height * 0.5f
+        val secondRight = second.centerX + second.width * 0.5f
+        val secondBottom = second.centerY + second.height * 0.5f
+        val intersection = max(0f, min(firstRight, secondRight) - max(firstLeft, secondLeft)) *
+            max(0f, min(firstBottom, secondBottom) - max(firstTop, secondTop))
+        val union = first.width * first.height + second.width * second.height - intersection
+        return if (union <= 0f) 0f else intersection / union
     }
 
     private fun inkRatio(bitmap: Bitmap, trimBorder: Boolean): Float {
@@ -287,8 +316,28 @@ class OnDeviceFormProcessingService(
 
     private fun openBitmap(value: String): Bitmap {
         val uri = Uri.parse(value)
-        return context.contentResolver.openInputStream(uri)?.use(BitmapFactory::decodeStream)
+        val bitmap = context.contentResolver.openInputStream(uri)?.use(BitmapFactory::decodeStream)
             ?: error("Unable to open captured form image")
+        val orientation = context.contentResolver.openInputStream(uri)?.use { input ->
+            ExifInterface(input).getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
+        } ?: ExifInterface.ORIENTATION_NORMAL
+        val rotation = when (orientation) {
+            ExifInterface.ORIENTATION_ROTATE_90, ExifInterface.ORIENTATION_TRANSPOSE -> 90f
+            ExifInterface.ORIENTATION_ROTATE_180, ExifInterface.ORIENTATION_FLIP_VERTICAL -> 180f
+            ExifInterface.ORIENTATION_ROTATE_270, ExifInterface.ORIENTATION_TRANSVERSE -> 270f
+            else -> 0f
+        }
+        val flipHorizontal = orientation in setOf(
+            ExifInterface.ORIENTATION_FLIP_HORIZONTAL,
+            ExifInterface.ORIENTATION_TRANSPOSE,
+            ExifInterface.ORIENTATION_TRANSVERSE,
+        )
+        if (rotation == 0f && !flipHorizontal) return bitmap
+        val matrix = Matrix().apply {
+            if (flipHorizontal) postScale(-1f, 1f)
+            if (rotation != 0f) postRotate(rotation)
+        }
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
     }
 
     override fun close() {
@@ -307,9 +356,9 @@ class OnDeviceFormProcessingService(
     }
 
     private data class Configuration(
-        val modelPath: String,
-        val inputSize: Int,
-        val confidenceThreshold: Float,
+        val anchorDetector: DetectorConfiguration,
+        val handwritingDetector: DetectorConfiguration,
+        val handwritingCropPadding: Float,
         val minimumInkRatio: Float,
         val textModelDirectory: String,
         val numericModelDirectory: String,
@@ -320,16 +369,21 @@ class OnDeviceFormProcessingService(
         val fieldId: String,
         val type: String,
         val crop: FloatArray,
-        val canonical: FloatArray,
         val options: List<ChoiceOption>,
     )
+    private data class DetectorConfiguration(
+        val modelPath: String,
+        val inputSize: Int,
+        val confidenceThreshold: Float,
+        val iouThreshold: Float,
+        val maximumDetections: Int,
+    )
     private data class ChoiceOption(val id: String, val crop: FloatArray, val threshold: Float?, val trimBorder: Boolean)
-    private data class Detection(val centerX: Float, val centerY: Float, val width: Float, val height: Float, val angle: Float, val confidence: Float)
     private data class PreparedBitmap(val bitmap: Bitmap, val scale: Float, val left: Float, val top: Float)
-    private data class CorrectedForm(val bitmap: Bitmap, val detections: Map<Int, Detection>)
 
     private companion object {
         val SAFE_ID = Regex("[a-z][a-z0-9_]*")
         val NUMERIC_PATTERN = Regex("[+-]?\\d+(?:[.,/:-]\\d+)*(?:%)?")
+        val TEXT_FIELD_TYPES = setOf("text", "number", "numeric")
     }
 }

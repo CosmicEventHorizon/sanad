@@ -56,6 +56,8 @@ uv pip install --python .venv-ai/bin/python torch torchvision ultralytics \
 
 .venv-ai/bin/python ai/scripts/prepare_datasets.py
 .venv-ai/bin/python ai/scripts/train_yolo_obb.py
+.venv-ai/bin/python ai/scripts/prepare_handwriting_detector.py
+.venv-ai/bin/python ai/scripts/train_handwriting_detector.py
 .venv-ai/bin/python ai/scripts/train_trocr_numbers.py
 .venv-ai/bin/python ai/scripts/export_trocr_onnx.py
 ```
@@ -63,6 +65,7 @@ uv pip install --python .venv-ai/bin/python torch torchvision ultralytics \
 Training configuration lives in `ai/config`. Metrics are written to `ai/reports`; best checkpoints stay in the ignored `ai/runs` directory. Successful export creates the locally ignored Android assets at:
 
 - `app/src/main/assets/forms/pregnancy_monitoring/anchors.onnx`
+- `app/src/main/assets/models/handwriting.onnx`
 - `app/src/main/assets/models/trocr/`
 - `app/src/main/assets/models/trocr_numbers/`
 
@@ -77,7 +80,7 @@ The numeric model learns digits and meaningful numeric separators while treating
 
 ## Implementation notes
 
-- Form bundles live under `app/src/main/assets/forms/<form_id>`. Each bundle owns its template, anchor mapping, pipeline specification, and YOLO anchor detector. Shared TrOCR assets live under `app/src/main/assets/models`; the reserved `handwriting.onnx` path is available for a future optional handwriting-region detector.
-- The processing stage uses the detected label's oriented local coordinate system to rectify its configured value crop. Boolean marks use ink density; handwriting crops route to shared TrOCR assets. Missing or uncertain output is always flagged for review rather than guessed.
+- Form bundles live under `app/src/main/assets/forms/<form_id>`. Each bundle owns its template, anchor mapping, pipeline specification, and printed-label YOLO OBB detector. The handwriting YOLO OBB detector and TrOCR readers are shared under `app/src/main/assets/models`.
+- Printed-label geometry constrains one-to-one assignment of shared handwriting detections to fields. OCR crops are rectified from the matched handwriting OBB itself, while boolean marks continue to use label-relative ink density. Missing or uncertain output is flagged for review rather than guessed.
 - Room is the source of truth; scanning, review, search, details, and language switching work offline.
 - `IRecordSyncService` deliberately has a non-networked placeholder implementation. A remote adapter can be added without changing application or presentation code.

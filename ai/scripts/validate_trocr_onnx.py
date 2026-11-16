@@ -16,9 +16,9 @@ from transformers import TrOCRProcessor
 
 ROOT = Path(__file__).resolve().parents[2]
 ASSETS = ROOT / "app/src/main/assets/models/trocr_numbers"
-MODEL = ROOT / "ai/runs/trocr_numbers_numeric/best"
-DATA = ROOT / "dataset/prepared/numbers/trocr/test"
 CONFIG = json.loads((ROOT / "ai/config/trocr_numbers.json").read_text())
+MODEL = ROOT / CONFIG.get("output_directory", "ai/runs/trocr_numbers") / "best"
+DATA = ROOT / "dataset/prepared/numbers/trocr/test"
 
 
 def numeric_value(text: str) -> str:

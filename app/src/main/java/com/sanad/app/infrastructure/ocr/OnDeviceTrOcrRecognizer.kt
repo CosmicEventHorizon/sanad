@@ -21,6 +21,8 @@ class OnDeviceTrOcrRecognizer(
 ) : AutoCloseable {
     private val sessions = mutableMapOf<String, OrtSession>()
     private val vocabularies = mutableMapOf<String, Map<Int, String>>()
+    private val generationSettings = mutableMapOf<String, GenerationSettings>()
+    private val sessionLoader = AssetOnnxSessionLoader(context, environment)
 
     fun recognize(bitmap: Bitmap, modelDirectory: String, maxLength: Int = 32): TrOcrResult {
         val encoderDirectory = if (assetExists("$modelDirectory/encoder_model.onnx")) modelDirectory else TEXT_MODEL_DIRECTORY
@@ -36,7 +38,8 @@ class OnDeviceTrOcrRecognizer(
             }
         }
 
-        val generated = mutableListOf(START_TOKEN_ID)
+        val generation = generationSettings.getOrPut(modelDirectory) { loadGenerationSettings(modelDirectory) }
+        val generated = mutableListOf(generation.startTokenId)
         val probabilities = mutableListOf<Float>()
         for (step in 1 until maxLength) {
             val ids = generated.map(Int::toLong).toLongArray()
@@ -67,7 +70,7 @@ class OnDeviceTrOcrRecognizer(
                         var denominator = 0.0
                         for (index in 0 until vocabularySize) denominator += exp((values[offset + index] - best).toDouble())
                         probabilities += (1.0 / max(denominator, 1e-12)).toFloat()
-                        if (token == END_TOKEN_ID) reachedEnd = true else generated += token
+                        if (token == generation.endTokenId) reachedEnd = true else generated += token
                     }
                 }
             }
@@ -80,6 +83,9 @@ class OnDeviceTrOcrRecognizer(
     }
 
     private fun preprocess(source: Bitmap): FloatArray {
+        // Match the Hugging Face TrOCR processor and the reference Android implementation.
+        // TrOCR was trained with a direct square resize, so preserving the line aspect ratio here
+        // would shrink the glyphs into a thin strip surrounded by unused pixels.
         val bitmap = Bitmap.createScaledBitmap(source, IMAGE_SIZE, IMAGE_SIZE, true)
         val pixels = IntArray(IMAGE_SIZE * IMAGE_SIZE)
         bitmap.getPixels(pixels, 0, IMAGE_SIZE, 0, 0, IMAGE_SIZE, IMAGE_SIZE)
@@ -95,6 +101,14 @@ class OnDeviceTrOcrRecognizer(
     private fun loadVocabulary(directory: String): Map<Int, String> {
         val json = context.assets.open("$directory/vocab.json").bufferedReader().use { JSONObject(it.readText()) }
         return json.keys().asSequence().associate { token -> json.getInt(token) to token }
+    }
+
+    private fun loadGenerationSettings(directory: String): GenerationSettings {
+        val json = context.assets.open("$directory/generation_config.json").bufferedReader().use { JSONObject(it.readText()) }
+        return GenerationSettings(
+            startTokenId = json.getInt("decoder_start_token_id"),
+            endTokenId = json.getInt("eos_token_id"),
+        )
     }
 
     private fun decodeByteBpe(tokens: List<String>): String {
@@ -118,7 +132,7 @@ class OnDeviceTrOcrRecognizer(
     }
 
     private fun session(path: String): OrtSession = sessions.getOrPut(path) {
-        context.assets.open(path).use { environment.createSession(it.readBytes(), OrtSession.SessionOptions()) }
+        sessionLoader.load(path)
     }
 
     private fun assetExists(path: String): Boolean = runCatching { context.assets.open(path).close() }.isSuccess
@@ -129,11 +143,10 @@ class OnDeviceTrOcrRecognizer(
     }
 
     private data class HiddenState(val values: FloatArray, val shape: LongArray)
+    private data class GenerationSettings(val startTokenId: Int, val endTokenId: Int)
 
     private companion object {
         const val IMAGE_SIZE = 384
-        const val START_TOKEN_ID = 0
-        const val END_TOKEN_ID = 2
         const val TEXT_MODEL_DIRECTORY = "models/trocr"
     }
 }

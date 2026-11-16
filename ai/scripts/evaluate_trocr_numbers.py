@@ -16,7 +16,7 @@ from transformers import TrOCRProcessor, VisionEncoderDecoderModel
 
 ROOT = Path(__file__).resolve().parents[2]
 CONFIG = json.loads((ROOT / "ai/config/trocr_numbers.json").read_text())
-MODEL = ROOT / "ai/runs/trocr_numbers_numeric/best"
+MODEL = ROOT / CONFIG.get("output_directory", "ai/runs/trocr_numbers") / "best"
 DATA = ROOT / "dataset/prepared/numbers/trocr/test"
 REPORT = ROOT / "ai/reports/trocr_numbers_metrics.json"
 

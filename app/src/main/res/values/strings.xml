@@ -18,6 +18,7 @@
     <string name="camera_permission_body">Sanad uses the camera only to capture medical forms.</string>
     <string name="allow_camera">Allow camera</string>
     <string name="capture">Capture</string>
+    <string name="camera_capture_failed">The photo could not be saved. Please try again.</string>
     <string name="processing">Reading the form…</string>
     <string name="processing_detail">Detecting fields and checking confidence</string>
     <string name="processing_failed">We couldn’t read that image. Please try again.</string>

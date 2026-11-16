@@ -148,6 +148,7 @@ def main() -> None:
     report = {
         "base_model": CONFIG["base_model"],
         "initial_model": str(initial_model),
+        "preprocessing": "Original detected/annotated line crop; TrOCRProcessor direct resize to 384x384, matching Android inference",
         "encoder_frozen": CONFIG.get("freeze_encoder", False),
         "train_samples": len(train_dataset),
         "validation_samples": len(validation_dataset),

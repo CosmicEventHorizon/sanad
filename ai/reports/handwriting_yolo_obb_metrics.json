@@ -1,0 +1,20 @@
+{
+  "model": "YOLO11n-OBB",
+  "classes": [
+    "handwriting_line"
+  ],
+  "checkpoint": "ai/runs/shared_handwriting_yolo11n_obb/weights/best.pt",
+  "onnx_asset": "app/src/main/assets/models/handwriting.onnx",
+  "validation": {
+    "precision": 0.9998355165437648,
+    "recall": 1.0,
+    "map50": 0.995,
+    "map50_95": 0.948686910683987
+  },
+  "test": {
+    "precision": 0.9998548650890607,
+    "recall": 1.0,
+    "map50": 0.995,
+    "map50_95": 0.9559850920695647
+  }
+}

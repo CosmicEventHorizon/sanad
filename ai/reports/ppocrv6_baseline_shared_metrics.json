@@ -1,0 +1,744 @@
+{
+  "predictions": "ai/reports/ppocrv6_baseline_predictions.txt",
+  "metadata": "dataset/prepared/ppocrv6_recognition/shared_test.csv",
+  "overall": {
+    "samples": 1403,
+    "characters": 12825,
+    "character_errors": 668,
+    "cer": 0.052085769980506826,
+    "exact_matches": 995,
+    "exact_match_accuracy": 0.7091945830363506,
+    "mean_confidence": 0.9693525213049891
+  },
+  "by_source_kind": {
+    "annotated_form_crop": {
+      "samples": 765,
+      "characters": 5169,
+      "character_errors": 278,
+      "cer": 0.053782162894176824,
+      "exact_matches": 592,
+      "exact_match_accuracy": 0.7738562091503268,
+      "mean_confidence": 0.9623881466248456
+    },
+    "real_pipeline_crop": {
+      "samples": 10,
+      "characters": 120,
+      "character_errors": 3,
+      "cer": 0.025,
+      "exact_matches": 8,
+      "exact_match_accuracy": 0.8,
+      "mean_confidence": 0.982750540971756
+    },
+    "synthetic_pipeline_crop": {
+      "samples": 628,
+      "characters": 7536,
+      "character_errors": 387,
+      "cer": 0.05135350318471338,
+      "exact_matches": 395,
+      "exact_match_accuracy": 0.6289808917197452,
+      "mean_confidence": 0.9776228500209796
+    }
+  },
+  "examples": [
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00014__record_code.png",
+      "target": "SYN-307485",
+      "prediction": "SYN-307485",
+      "confidence": 0.9862157702445984,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00014__region.png",
+      "target": "Coastal",
+      "prediction": "Coastal",
+      "confidence": 0.999972939491272,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00014__province.png",
+      "target": "District C",
+      "prediction": "District C",
+      "confidence": 0.9998365640640259,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00014__health_facility.png",
+      "target": "Hope Center",
+      "prediction": "Hope Center",
+      "confidence": 0.9752868413925171,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00014__facility_type.png",
+      "target": "CSU",
+      "prediction": "CSU",
+      "confidence": 0.9990713596343994,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00014__coverage_mode.png",
+      "target": "Mobile",
+      "prediction": "Mobile",
+      "confidence": 0.999914824962616,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00014__risk_factor.png",
+      "target": "Anémie",
+      "prediction": "Anémie",
+      "confidence": 0.9999194145202637,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00016__record_code.png",
+      "target": "SYN-655100",
+      "prediction": "SYN-655100",
+      "confidence": 0.9982479214668274,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00016__region.png",
+      "target": "North",
+      "prediction": "North",
+      "confidence": 0.9999502897262573,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00016__province.png",
+      "target": "District C",
+      "prediction": "District C",
+      "confidence": 0.999890923500061,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00016__health_facility.png",
+      "target": "Hope Center",
+      "prediction": "Hope Center",
+      "confidence": 0.999768078327179,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00016__facility_type.png",
+      "target": "CSU",
+      "prediction": "CSU",
+      "confidence": 0.9948516488075256,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00016__coverage_mode.png",
+      "target": "Mobile",
+      "prediction": "Mobile",
+      "confidence": 0.9992905259132385,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00016__risk_factor.png",
+      "target": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.9998180270195007,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00031__record_code.png",
+      "target": "SYN-935454",
+      "prediction": "SYN-935454",
+      "confidence": 0.969250500202179,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00031__region.png",
+      "target": "Coastal",
+      "prediction": "Coastal",
+      "confidence": 0.9987967610359192,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00031__province.png",
+      "target": "Province B",
+      "prediction": "Province B",
+      "confidence": 0.995901882648468,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00031__health_facility.png",
+      "target": "Hope Center",
+      "prediction": "Hope Center",
+      "confidence": 0.9585899710655212,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00031__facility_type.png",
+      "target": "CSC",
+      "prediction": "CSC",
+      "confidence": 0.8983668684959412,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00031__coverage_mode.png",
+      "target": "Fixed",
+      "prediction": "Fixed",
+      "confidence": 0.9992526769638062,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00031__risk_factor.png",
+      "target": "None",
+      "prediction": "None",
+      "confidence": 0.9612351655960083,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00035__record_code.png",
+      "target": "SYN-109345",
+      "prediction": "SYN-109345",
+      "confidence": 0.999747097492218,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00035__region.png",
+      "target": "Coastal",
+      "prediction": "Coastal",
+      "confidence": 0.9979333877563477,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00035__province.png",
+      "target": "District C",
+      "prediction": "District C",
+      "confidence": 0.989477276802063,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00035__health_facility.png",
+      "target": "Hope Center",
+      "prediction": "Hope Center",
+      "confidence": 0.9594312310218811,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00035__facility_type.png",
+      "target": "CSC",
+      "prediction": "CSC",
+      "confidence": 0.9990350604057312,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00035__coverage_mode.png",
+      "target": "Mobile",
+      "prediction": "Mobile",
+      "confidence": 0.9289803504943848,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00035__risk_factor.png",
+      "target": "Infection",
+      "prediction": "Infection",
+      "confidence": 0.9900035858154297,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00047__record_code.png",
+      "target": "SYN-336687",
+      "prediction": "SYN-336687",
+      "confidence": 0.825657844543457,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00047__region.png",
+      "target": "Central",
+      "prediction": "Centra",
+      "confidence": 0.5513705611228943,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00047__province.png",
+      "target": "District C",
+      "prediction": "District C",
+      "confidence": 0.8691146969795227,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00047__health_facility.png",
+      "target": "Unity Clinic",
+      "prediction": "Unity Clinic",
+      "confidence": 0.9423706531524658,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00047__facility_type.png",
+      "target": "CSCA",
+      "prediction": "CSCA",
+      "confidence": 0.9349550008773804,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00047__coverage_mode.png",
+      "target": "Mobile",
+      "prediction": "Mobile",
+      "confidence": 0.9973648190498352,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00047__risk_factor.png",
+      "target": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.9978585243225098,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00058__record_code.png",
+      "target": "SYN-429695",
+      "prediction": "SYN-429695",
+      "confidence": 0.9597794413566589,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00058__region.png",
+      "target": "Atlas",
+      "prediction": "Atlas",
+      "confidence": 0.9999111890792847,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00058__province.png",
+      "target": "District C",
+      "prediction": "District C",
+      "confidence": 0.9481910467147827,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00058__health_facility.png",
+      "target": "Centre Al Amal",
+      "prediction": "Centre Al Amal",
+      "confidence": 0.9658603072166443,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00058__facility_type.png",
+      "target": "CSC",
+      "prediction": "CSC",
+      "confidence": 0.9989705085754395,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00058__coverage_mode.png",
+      "target": "Fixed",
+      "prediction": "Fixed",
+      "confidence": 0.9999607801437378,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00058__risk_factor.png",
+      "target": "Hypertension",
+      "prediction": "Hypertension",
+      "confidence": 0.9968002438545227,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00077__record_code.png",
+      "target": "SYN-298203",
+      "prediction": "SYN-298203",
+      "confidence": 0.9996328353881836,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00077__region.png",
+      "target": "Atlas",
+      "prediction": "Atlas",
+      "confidence": 0.9723288416862488,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00077__province.png",
+      "target": "District C",
+      "prediction": "District C",
+      "confidence": 0.9961226582527161,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00077__health_facility.png",
+      "target": "Centre Al Amal",
+      "prediction": "Centre Al Amal",
+      "confidence": 0.9714611768722534,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00077__facility_type.png",
+      "target": "CSU",
+      "prediction": "CSU",
+      "confidence": 0.9979166984558105,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00077__coverage_mode.png",
+      "target": "Fixe",
+      "prediction": "Fixe",
+      "confidence": 0.9998262524604797,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_fr_00077__risk_factor.png",
+      "target": "Anémie",
+      "prediction": "Anémie",
+      "confidence": 0.9753611087799072,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00085__record_code.png",
+      "target": "SYN-826656",
+      "prediction": "SYN-826656",
+      "confidence": 0.9999225735664368,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00085__region.png",
+      "target": "Atlas",
+      "prediction": "Atlas",
+      "confidence": 0.9992865324020386,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00085__province.png",
+      "target": "Province B",
+      "prediction": "Province B",
+      "confidence": 0.9991683959960938,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00085__health_facility.png",
+      "target": "Hope Center",
+      "prediction": "Hope Center",
+      "confidence": 0.9637870788574219,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00085__facility_type.png",
+      "target": "CSU",
+      "prediction": "CSU",
+      "confidence": 0.9993486404418945,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00085__coverage_mode.png",
+      "target": "Fixed",
+      "prediction": "Fixed",
+      "confidence": 0.9999338984489441,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/01_pregnancy_postpartum_monitoring__01_pregnancy_postpartum_monitoring_en_00085__risk_factor.png",
+      "target": "Infection",
+      "prediction": "Infection",
+      "confidence": 0.9998902082443237,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00009__age_years.png",
+      "target": "22",
+      "prediction": "2",
+      "confidence": 0.4131372570991516,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00009__education_level.png",
+      "target": "Secondary",
+      "prediction": "Eecondary",
+      "confidence": 0.5638899803161621,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00009__occupation.png",
+      "target": "Worker",
+      "prediction": "Worker",
+      "confidence": 0.8113093376159668,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00009__gravidity.png",
+      "target": "7",
+      "prediction": "7",
+      "confidence": 0.8334022760391235,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00009__parity.png",
+      "target": "0",
+      "prediction": "Pari",
+      "confidence": 0.8151100873947144,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00009__living_children.png",
+      "target": "0",
+      "prediction": "Livin childre",
+      "confidence": 0.5843528509140015,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00009__abortions.png",
+      "target": "5",
+      "prediction": "5",
+      "confidence": 0.9751450419425964,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00009__cervical_screen_result.png",
+      "target": "Normal",
+      "prediction": "Normal",
+      "confidence": 0.999814510345459,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00010__age_years.png",
+      "target": "40",
+      "prediction": "40",
+      "confidence": 0.9985169172286987,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00010__education_level.png",
+      "target": "Secondaire",
+      "prediction": "Secondaire",
+      "confidence": 0.9999537467956543,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00010__occupation.png",
+      "target": "Étudiante",
+      "prediction": "Étudiante",
+      "confidence": 0.9988890886306763,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00010__gravidity.png",
+      "target": "1",
+      "prediction": "1",
+      "confidence": 0.7521582841873169,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00010__parity.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.5797514319419861,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00010__living_children.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.5586256384849548,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00010__abortions.png",
+      "target": "1",
+      "prediction": "1",
+      "confidence": 0.5466545224189758,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00010__cervical_screen_result.png",
+      "target": "Normal",
+      "prediction": "Normal",
+      "confidence": 0.9995695948600769,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00013__age_years.png",
+      "target": "21",
+      "prediction": "27",
+      "confidence": 0.999731719493866,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00013__education_level.png",
+      "target": "Secondaire",
+      "prediction": "Secondaire",
+      "confidence": 0.971143364906311,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00013__occupation.png",
+      "target": "Ouvrière",
+      "prediction": "Ouvrière",
+      "confidence": 0.9677022695541382,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00013__gravidity.png",
+      "target": "4",
+      "prediction": "4",
+      "confidence": 0.49672839045524597,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00013__parity.png",
+      "target": "1",
+      "prediction": "1",
+      "confidence": 0.6259194612503052,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00013__living_children.png",
+      "target": "1",
+      "prediction": "1",
+      "confidence": 0.8891298770904541,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00013__abortions.png",
+      "target": "3",
+      "prediction": "3",
+      "confidence": 0.9915186762809753,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_fr_00013__cervical_screen_result.png",
+      "target": "Normal",
+      "prediction": "Normal",
+      "confidence": 0.9992983341217041,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00021__age_years.png",
+      "target": "26",
+      "prediction": "26",
+      "confidence": 0.997678279876709,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00021__education_level.png",
+      "target": "Secondary",
+      "prediction": "Secondary",
+      "confidence": 0.9995899200439453,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00021__occupation.png",
+      "target": "Worker",
+      "prediction": "Worker",
+      "confidence": 0.9558102488517761,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00021__gravidity.png",
+      "target": "4",
+      "prediction": "Gaihy",
+      "confidence": 0.4347987174987793,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00021__parity.png",
+      "target": "4",
+      "prediction": "4",
+      "confidence": 0.9922732710838318,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00021__living_children.png",
+      "target": "4",
+      "prediction": "4",
+      "confidence": 0.9926192164421082,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00021__abortions.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.849619448184967,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00021__cervical_screen_result.png",
+      "target": "Normal",
+      "prediction": "Normal",
+      "confidence": 0.6551715731620789,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00030__age_years.png",
+      "target": "22",
+      "prediction": "22",
+      "confidence": 0.9998942613601685,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00030__education_level.png",
+      "target": "Higher",
+      "prediction": "Higher",
+      "confidence": 0.9999725818634033,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00030__occupation.png",
+      "target": "Worker",
+      "prediction": "Worker",
+      "confidence": 0.9999570846557617,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00030__gravidity.png",
+      "target": "1",
+      "prediction": "1",
+      "confidence": 0.7936640381813049,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00030__parity.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.8648003935813904,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00030__living_children.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.5487010478973389,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00030__abortions.png",
+      "target": "0",
+      "prediction": "0",
+      "confidence": 0.8290407061576843,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00030__cervical_screen_result.png",
+      "target": "Normal",
+      "prediction": "Normal",
+      "confidence": 0.9999451041221619,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00069__age_years.png",
+      "target": "17",
+      "prediction": "17",
+      "confidence": 0.9958390593528748,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00069__education_level.png",
+      "target": "Higher",
+      "prediction": "Higher",
+      "confidence": 0.9999874234199524,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00069__occupation.png",
+      "target": "Worker",
+      "prediction": "Worker",
+      "confidence": 0.9973598122596741,
+      "source_kind": "annotated_form_crop"
+    },
+    {
+      "file_name": "images/test/forms/02_identification_and_history__02_identification_and_history_en_00069__gravidity.png",
+      "target": "2",
+      "prediction": "2",
+      "confidence": 0.9925170540809631,
+      "source_kind": "annotated_form_crop"
+    }
+  ]
+}
